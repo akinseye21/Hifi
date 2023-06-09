@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment"
+    android:background="@color/white"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/first">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/img1"
+                android:layout_marginRight="5dp"
+                android:id="@+id/profilePic"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toRightOf="@+id/profilePic">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/username"
+                    android:text="Hello Daniel"
+                    android:textSize="14dp"
+                    android:textColor="#191616"
+                    android:fontFamily="@font/clashdisplaymedium"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome Back"
+                    android:textSize="12dp"
+                    android:textColor="#191616"
+                    android:fontFamily="@font/clashdisplayregular"/>
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/notification"
+                android:layout_alignParentRight="true"
+                android:padding="5dp"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Activities"
+            android:textSize="15dp"
+            android:fontFamily="@font/clashdisplaysemibold"
+            android:textColor="#191616"
+            android:layout_marginTop="30dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/first">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/card_black">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Protect Your POS Outlet"
+                        android:textColor="@color/white"
+                        android:textSize="17dp"
+                        android:paddingBottom="20dp"
+                        android:fontFamily="@font/clashdisplaysemibold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Protect your POS Outlet business from\nunforeseen circumstances."
+                        android:textColor="@color/white"
+                        android:textSize="12dp"
+                        android:paddingBottom="10dp"
+                        android:fontFamily="@font/clashdisplayregular"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/button_plain">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Protect Outlet"
+                            android:textSize="12dp"
+                            android:fontFamily="@font/clashdisplaysemibold"
+                            android:textColor="#191616"
+                            android:paddingRight="2dp"/>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/arrow_right"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/i_card1"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/card_green">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Make Online Payments"
+                        android:textColor="@color/white"
+                        android:textSize="17dp"
+                        android:paddingBottom="20dp"
+                        android:fontFamily="@font/clashdisplaysemibold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Shop from international stores, book flights,\nand the rest with our payment solutions."
+                        android:textColor="@color/white"
+                        android:textSize="12dp"
+                        android:paddingBottom="10dp"
+                        android:fontFamily="@font/clashdisplayregular"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/button_plain">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Make Payments"
+                            android:textSize="12dp"
+                            android:fontFamily="@font/clashdisplaysemibold"
+                            android:textColor="#191616"
+                            android:paddingRight="2dp"/>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/arrow_right"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/i_card2"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/becFraudPrevention"
+                android:background="@drawable/card_red">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BEC Fraud Prevention"
+                        android:textColor="@color/white"
+                        android:textSize="17dp"
+                        android:paddingBottom="20dp"
+                        android:fontFamily="@font/clashdisplaysemibold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Protect your  business from bad actors,\nverify invoices and payment requests."
+                        android:textColor="@color/white"
+                        android:textSize="12dp"
+                        android:paddingBottom="10dp"
+                        android:fontFamily="@font/clashdisplayregular"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/button_plain">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Verify Payment"
+                            android:textSize="12dp"
+                            android:fontFamily="@font/clashdisplaysemibold"
+                            android:textColor="#191616"
+                            android:paddingRight="2dp"/>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/arrow_right"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/i_card3"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoanBalance"
+    android:background="@color/white"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="90dp"
+        android:id="@+id/first">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/arrow_left"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/gradient_black"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loan Balance"
+                android:textSize="15dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/clashdisplaymedium"
+                android:textColor="#ffffff"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₦"
+                    android:fontFamily="@font/clashdisplaysemibold"
+                    android:textSize="20dp"
+                    android:textColor="#ffffff"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="300,000"
+                    android:fontFamily="@font/clashdisplaysemibold"
+                    android:textSize="20dp"
+                    android:textColor="#ffffff"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/visibility"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paid loans"
+            android:textSize="15dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:fontFamily="@font/clashdisplaymedium"
+            android:layout_marginTop="30dp"
+            android:textColor="#191616"/>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/payBack"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_black"
+        android:clickable="false"
+        android:fontFamily="@font/clashdisplaybold"
+        android:text="Request loan"
+        android:textAllCaps="false"
+        android:textColor="#ffffff" />
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="3dp"
+        android:layout_gravity="center"
+        android:background="@color/black"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"/>
+
+</RelativeLayout>

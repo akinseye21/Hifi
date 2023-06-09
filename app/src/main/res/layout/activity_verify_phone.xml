@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".VerifyPhone"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="5dp">
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="30dp"
+        android:id="@+id/back"
+        android:src="@drawable/arrow_left"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/enterInput"
+        android:layout_below="@+id/back">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter Verification Code"
+            android:textSize="24dp"
+            android:textColor="#191616"
+            android:id="@+id/text1"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/clashdisplaysemibold"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="We sent a code to "
+                android:textSize="12dp"
+                android:textColor="#3f3f46"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/clashdisplayregular"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="08137439027"
+                android:textSize="12dp"
+                android:textColor="#3f3f46"
+                android:id="@+id/txtPhone"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/clashdisplayregular"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text"
+                android:layout_marginRight="10dp"
+                android:textColor="#191616"
+                android:textSize="24dp"
+                android:ems="1"
+                android:id="@+id/edt1"
+                android:inputType="number"
+                android:maxLength="1"
+                android:singleLine="true"
+                android:fontFamily="@font/clashdisplaysemibold"
+                android:gravity="center"/>
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text"
+                android:layout_marginRight="10dp"
+                android:textColor="#191616"
+                android:textSize="24dp"
+                android:ems="1"
+                android:id="@+id/edt2"
+                android:inputType="number"
+                android:maxLength="1"
+                android:singleLine="true"
+                android:fontFamily="@font/clashdisplaysemibold"
+                android:gravity="center"/>
+
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text"
+                android:layout_marginRight="10dp"
+                android:textColor="#191616"
+                android:textSize="24dp"
+                android:ems="1"
+                android:id="@+id/edt3"
+                android:inputType="number"
+                android:maxLength="1"
+                android:singleLine="true"
+                android:fontFamily="@font/clashdisplaysemibold"
+                android:gravity="center"/>
+
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text"
+                android:layout_marginRight="10dp"
+                android:textColor="#191616"
+                android:textSize="24dp"
+                android:ems="1"
+                android:id="@+id/edt4"
+                android:inputType="number"
+                android:maxLength="1"
+                android:singleLine="true"
+                android:fontFamily="@font/clashdisplaysemibold"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Didn't get the code? "
+                android:textSize="12dp"
+                android:textColor="#3f3f46"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/clashdisplayregular"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Click to resend"
+                android:textSize="12dp"
+                android:textColor="#3f3f46"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/clashdisplaysemibold"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone"
+        android:id="@+id/successfull"
+        android:layout_below="@+id/back"
+        android:layout_marginTop="60dp">
+        <ImageView
+            android:layout_width="162dp"
+            android:layout_height="162dp"
+            android:src="@drawable/img7"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="verification successful"
+            android:textSize="24dp"
+            android:textColor="#191616"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/clashdisplaysemibold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your mobile number has been\nverified successfully"
+            android:textSize="13dp"
+            android:textColor="#3f3f46"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/clashdisplayregular"/>
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/verify"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_black"
+        android:fontFamily="@font/clashdisplaybold"
+        android:text="Verify"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16dp" />
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="3dp"
+        android:layout_gravity="center"
+        android:background="@color/black"
+        android:id="@+id/view"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"/>
+
+</RelativeLayout>

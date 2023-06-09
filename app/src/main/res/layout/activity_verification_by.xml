@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".VerificationBy"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="5dp">
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="30dp"
+        android:id="@+id/back"
+        android:src="@drawable/arrow_left"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:id="@+id/lin1">
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:padding="20dp"
+            android:id="@+id/image"
+            android:src="@drawable/img5"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verify email address"
+            android:textSize="24dp"
+            android:layout_gravity="center"
+            android:textColor="#3f3f46"
+            android:id="@+id/text1"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/clashdisplaysemibold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="We sent a verification email to"
+            android:textSize="12dp"
+            android:textColor="#3f3f46"
+            android:id="@+id/text2"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/clashdisplayregular"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lin_text3"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx@gmail.com"
+                android:textSize="12dp"
+                android:textColor="#3f3f46"
+                android:layout_marginTop="5dp"
+                android:id="@+id/txt_email"
+                android:fontFamily="@font/clashdisplaysemibold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=", check and "
+                android:textSize="12dp"
+                android:textColor="#3f3f46"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/clashdisplayregular"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="verify it's you"
+            android:textSize="12dp"
+            android:textColor="#3f3f46"
+            android:layout_marginTop="5dp"
+            android:id="@+id/text4"
+            android:fontFamily="@font/clashdisplayregular"/>
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="30dp"
+            android:text="Open email"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:id="@+id/buttonOpen"
+            android:fontFamily="@font/clashdisplaybold"
+            android:textSize="16dp"
+            android:background="@drawable/button_black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change email?"
+            android:textColor="#1C64F2"
+            android:fontFamily="@font/clashdisplayregular"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:id="@+id/changeEmail"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="3dp"
+        android:layout_gravity="center"
+        android:background="@color/black"
+        android:id="@+id/view"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"/>
+
+</RelativeLayout>

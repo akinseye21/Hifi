@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ProtectOutlet"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/first">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/arrow_left"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buy cover for one outlet"
+            android:textSize="15dp"
+            android:fontFamily="@font/clashdisplaysemibold"
+            android:textColor="#191616"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Protect your outlet, you can buy cover for one or more outlets."
+            android:textSize="13dp"
+            android:fontFamily="@font/clashdisplayregular"
+            android:textColor="#191616"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/first">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Tell us the name of your POS stand"
+                android:textColor="#191616"
+                android:textSize="13dp" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edit_text"
+                android:fontFamily="@font/clashdisplayregular"
+                android:hint="Enter name"
+                android:inputType="textEmailAddress"
+                android:textColor="#3f3f46"
+                android:textColorHint="#a1a1aa"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Tell us the address and closest landmark"
+                android:textColor="#191616"
+                android:textSize="13dp" />
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edit_text"
+                android:fontFamily="@font/clashdisplayregular"
+                android:hint="Address"
+                android:inputType="textEmailAddress"
+                android:textColor="#3f3f46"
+                android:textColorHint="#a1a1aa"
+                android:textSize="12dp" />
+
+            <EditText
+                android:id="@+id/city"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text"
+                android:fontFamily="@font/clashdisplayregular"
+                android:hint="City, State"
+                android:inputType="textEmailAddress"
+                android:textColor="#3f3f46"
+                android:textColorHint="#a1a1aa"
+                android:textSize="12dp" />
+
+            <EditText
+                android:id="@+id/landmark"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/edit_text"
+                android:fontFamily="@font/clashdisplayregular"
+                android:hint="Closest Landmark"
+                android:inputType="textEmailAddress"
+                android:textColor="#3f3f46"
+                android:textColorHint="#a1a1aa"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Upload a store front picture of your outlet"
+                android:textColor="#191616"
+                android:textSize="13dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/upload_bg">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/clashdisplaymedium"
+                        android:text="Drop your files here or "
+                        android:textColor="#191616"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/clashdisplaymedium"
+                        android:text="browse"
+                        android:textColor="#3B82F6"
+                        android:textSize="13dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/clashdisplaymedium"
+                    android:text="Maximum size: 50MB"
+                    android:textColor="#A1A1AA"
+                    android:layout_marginTop="10dp"
+                    android:textSize="13dp" />
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/protectOutlet"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_black"
+                android:clickable="false"
+                android:fontFamily="@font/clashdisplaybold"
+                android:text="Protect my outlet"
+                android:textColor="#ffffff"
+                android:textAllCaps="false" />
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="3dp"
+        android:layout_gravity="center"
+        android:background="@color/black"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"/>
+
+</RelativeLayout>

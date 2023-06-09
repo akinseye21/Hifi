@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@drawable/img1"
+            android:id="@+id/image"
+            android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cover and loans for POS operators"
+            android:textSize="24dp"
+            android:textColor="#191616"
+            android:id="@+id/text1"
+            android:fontFamily="@font/clashdisplaysemibold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Protect your POS business against unforeseen or natural circumstances. Also get a loan to keep your POS business afloat."
+            android:textSize="15dp"
+            android:textColor="#3F3F46"
+            android:id="@+id/text2"
+            android:paddingTop="5dp"
+            android:fontFamily="@font/clashdisplayregular"/>
+    </LinearLayout>
+
+</RelativeLayout>

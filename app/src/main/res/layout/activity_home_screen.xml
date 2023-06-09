@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    tools:context=".HomeScreen">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/drawer_layout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#d4d4d8"
+                android:layout_above="@+id/tablayout"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/menu"
+                android:id="@+id/menu"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"/>
+
+            <androidx.viewpager.widget.ViewPager
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/viewpager"
+                android:layout_below="@+id/menu"
+                android:layout_marginBottom="70dp">
+            </androidx.viewpager.widget.ViewPager>
+
+
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tablayout"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:background="#ffffff"
+                app:tabGravity="fill"
+                app:tabIndicatorHeight="0.3dp"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="#191616"
+                app:tabTextAppearance="@style/TabText" />
+
+            <View
+                android:layout_width="100dp"
+                android:layout_height="3dp"
+                android:layout_gravity="center"
+                android:background="@color/black"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp"/>
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/overlayView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#30000000"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/drawer_items_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@android:color/white"
+            android:layout_gravity="start">
+
+            <!-- Custom drawer items will be added here dynamically -->
+
+        </LinearLayout>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+
+
+
+</FrameLayout>

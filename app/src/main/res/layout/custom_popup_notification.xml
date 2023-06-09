@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="@drawable/corner_popup"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/first">
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/arrow_left"
+            android:id="@+id/close"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment Details"
+            android:textSize="15dp"
+            android:fontFamily="@font/clashdisplaysemibold"
+            android:textColor="#191616"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Complete your payment by providing your payment\ndetails"
+            android:textSize="13dp"
+            android:fontFamily="@font/clashdisplayregular"
+            android:textColor="#191616"
+            android:layout_marginTop="20dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:padding="2dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/corner_grey">
+
+            <TextView
+                android:id="@+id/txtCard"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/corner_white"
+                android:fontFamily="@font/clashdisplaymedium"
+                android:gravity="center"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:text="Pay with card"
+                android:textColor="#191616" />
+
+            <TextView
+                android:id="@+id/txtTransfer"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/clashdisplaymedium"
+                android:gravity="center"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:textColor="#A1A1AA"
+                android:text="Pay by Transfer" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:visibility="visible"
+            android:id="@+id/linCard">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Name On Card"
+                android:textColor="#191616"
+                android:textSize="13dp" />
+
+            <EditText
+                android:id="@+id/cardName"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edit_text"
+                android:fontFamily="@font/clashdisplayregular"
+                android:hint="Enter name on card"
+                android:inputType="textEmailAddress"
+                android:textColor="#3f3f46"
+                android:textColorHint="#a1a1aa"
+                android:singleLine="true"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/clashdisplayregular"
+                android:layout_marginTop="30dp"
+                android:text="Card Number"
+                android:textColor="#191616"
+                android:textSize="13dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@android:color/transparent">
+
+                <EditText
+                    android:id="@+id/cardNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edit_text"
+                    android:fontFamily="@font/clashdisplayregular"
+                    android:hint="Enter card number"
+                    android:inputType="number"
+                    android:maxLength="16"
+                    android:textColor="#3f3f46"
+                    android:textColorHint="#a1a1aa"
+                    android:textSize="12dp"
+                    android:singleLine="true"/>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/master_card"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/linexp"
+                    android:layout_toLeftOf="@+id/lincvv"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/clashdisplayregular"
+                        android:text="Expiration Date"
+                        android:textColor="#191616"
+                        android:textSize="13dp" />
+
+                    <EditText
+                        android:id="@+id/expDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/edit_text"
+                        android:fontFamily="@font/clashdisplayregular"
+                        android:hint="MM / YY"
+                        android:maxLength="5"
+                        android:inputType="number"
+                        android:textColor="#3f3f46"
+                        android:textColorHint="#a1a1aa"
+                        android:textSize="12dp"
+                        android:singleLine="true"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/lincvv"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentRight="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/clashdisplayregular"
+                        android:text="CVV"
+                        android:textColor="#191616"
+                        android:textSize="13dp" />
+
+                    <EditText
+                        android:id="@+id/cvv"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/edit_text"
+                        android:fontFamily="@font/clashdisplayregular"
+                        android:hint="Enter cvv"
+                        android:maxLength="3"
+                        android:inputType="number"
+                        android:textColor="#3f3f46"
+                        android:textColorHint="#a1a1aa"
+                        android:textSize="12dp"
+                        android:singleLine="true" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/linTransfer"
+            android:layout_marginTop="10dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Bank"
+                android:textColor="#191616"
+                android:textSize="13dp" />
+
+            <EditText
+                android:id="@+id/bank"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edit_text"
+                android:fontFamily="@font/clashdisplayregular"
+                android:hint="Enter bank name"
+                android:inputType="textCapWords"
+                android:textColor="#3f3f46"
+                android:textColorHint="#a1a1aa"
+                android:textSize="12dp"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/clashdisplayregular"
+                android:layout_marginTop="20dp"
+                android:text="Account Number"
+                android:textColor="#191616"
+                android:textSize="13dp" />
+
+            <EditText
+                android:id="@+id/accNumber"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edit_text"
+                android:fontFamily="@font/clashdisplayregular"
+                android:hint="10 digit"
+                android:maxLength="10"
+                android:inputType="number"
+                android:textColor="#3f3f46"
+                android:textColorHint="#a1a1aa"
+                android:textSize="12dp"
+                android:singleLine="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/clashdisplayregular"
+                android:layout_marginTop="20dp"
+                android:text="Amount"
+                android:textColor="#191616"
+                android:textSize="13dp" />
+
+            <EditText
+                android:id="@+id/amount"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edit_text"
+                android:fontFamily="@font/clashdisplayregular"
+                android:hint="Enter amount"
+                android:inputType="number"
+                android:textColor="#3f3f46"
+                android:textColorHint="#a1a1aa"
+                android:textSize="12dp"
+                android:singleLine="true"/>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/pay"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/signup1"
+            android:clickable="false"
+            android:fontFamily="@font/clashdisplaybold"
+            android:text="Pay"
+            android:textAllCaps="false" />
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

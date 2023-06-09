@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/dotsLayout">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/dotsLayout2"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Skip"
+            android:textColor="#191616"
+            android:textSize="15dp"
+            android:fontFamily="@font/clashdisplaymedium"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/slider"
+        android:layout_below="@+id/dotsLayout"
+        android:layout_above="@+id/linbutton"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linbutton"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Create Account"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:id="@+id/createAccount"
+            android:fontFamily="@font/clashdisplaybold"
+            android:textSize="16dp"
+            android:background="@drawable/button_black"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign in"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:fontFamily="@font/clashdisplaybold"
+            android:textSize="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="35dp"
+            android:id="@+id/signin"
+            android:background="@drawable/button_white"/>
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="3dp"
+            android:layout_gravity="center"
+            android:background="@color/black"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+
+</RelativeLayout>

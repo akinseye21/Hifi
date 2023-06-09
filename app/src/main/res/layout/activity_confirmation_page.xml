@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfirmationPage"
+    android:background="@color/white"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="5dp">
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/back"
+        android:src="@drawable/arrow_left"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:id="@+id/successfull"
+        android:layout_centerInParent="true">
+        <ImageView
+            android:layout_width="162dp"
+            android:layout_height="162dp"
+            android:src="@drawable/img7"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment successful"
+            android:textSize="24dp"
+            android:textColor="#191616"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/clashdisplaysemibold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your outlet is now being protected against\n unforeseen circumstances"
+            android:textSize="13dp"
+            android:textColor="#3f3f46"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/clashdisplayregular"/>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/home"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/button_black"
+        android:clickable="false"
+        android:fontFamily="@font/clashdisplaybold"
+        android:text="Back to home"
+        android:textAllCaps="false"
+        android:textColor="#ffffff" />
+
+
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="3dp"
+        android:layout_gravity="center"
+        android:background="@color/black"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"/>
+
+
+</RelativeLayout>

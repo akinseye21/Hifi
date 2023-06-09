@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Loans"
+    android:background="@color/white"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="90dp"
+        android:id="@+id/first">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/arrow_left"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Loans"
+                android:textSize="15dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/clashdisplaysemibold"
+                android:textColor="#191616"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/clashdisplayregular"
+                android:padding="10dp"
+                android:id="@+id/viewLoanBalance"
+                android:text="View loan balance"
+                android:textColor="#191616"
+                android:textSize="13dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:padding="2dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/corner_grey">
+
+            <TextView
+                android:id="@+id/allLoans"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/corner_white"
+                android:fontFamily="@font/clashdisplaymedium"
+                android:gravity="center"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:text="All loans"
+                android:textColor="#191616" />
+
+            <TextView
+                android:id="@+id/pendingLoans"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/clashdisplaymedium"
+                android:gravity="center"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:textColor="#A1A1AA"
+                android:text="Pending loans" />
+        </RelativeLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listAllLoans"
+            android:visibility="gone"/>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listPendingLoans"
+            android:visibility="visible"/>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/payBack"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_black"
+        android:clickable="false"
+        android:layout_alignParentBottom="true"
+        android:fontFamily="@font/clashdisplaybold"
+        android:text="Pay back loan"
+        android:textAllCaps="false"
+        android:textColor="#ffffff" />
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="3dp"
+        android:layout_gravity="center"
+        android:background="@color/black"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"/>
+
+
+
+
+</RelativeLayout>

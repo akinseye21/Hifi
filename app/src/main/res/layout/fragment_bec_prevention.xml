@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BecPreventionFragment"
+    android:background="@color/white"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/first">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/arrow_left"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Protect Your Outlet"
+            android:textSize="15dp"
+            android:fontFamily="@font/clashdisplaysemibold"
+            android:textColor="#191616"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="By protecting your outlet, you can buy cover for one or more outlets."
+            android:textSize="13dp"
+            android:fontFamily="@font/clashdisplayregular"
+            android:textColor="#191616"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/first">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/buyCoverForOneOutlet"
+                android:background="@drawable/card_green">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Buy cover for one outlet"
+                        android:textColor="@color/white"
+                        android:textSize="17dp"
+                        android:paddingBottom="20dp"
+                        android:fontFamily="@font/clashdisplaysemibold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Protect your POS by purchasing a cover\nfor your single outlet."
+                        android:textColor="@color/white"
+                        android:textSize="12dp"
+                        android:paddingBottom="10dp"
+                        android:fontFamily="@font/clashdisplayregular"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/button_plain">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Buy Outlet"
+                            android:textSize="12dp"
+                            android:fontFamily="@font/clashdisplaysemibold"
+                            android:textColor="#191616"
+                            android:paddingRight="2dp"/>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/arrow_right"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/i_card4"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/card_black">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Buy cover for multiple outlets"
+                        android:textColor="@color/white"
+                        android:textSize="17dp"
+                        android:paddingBottom="20dp"
+                        android:fontFamily="@font/clashdisplaysemibold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Protect your POS by purchasing a cover\nfor your multiple outlets."
+                        android:textColor="@color/white"
+                        android:textSize="12dp"
+                        android:paddingBottom="10dp"
+                        android:fontFamily="@font/clashdisplayregular"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/button_plain">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Buy Outlet"
+                            android:textSize="12dp"
+                            android:fontFamily="@font/clashdisplaysemibold"
+                            android:textColor="#191616"
+                            android:paddingRight="2dp"/>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/arrow_right"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/i_card5"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/card_blue">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Request For Loan"
+                        android:textColor="@color/white"
+                        android:textSize="17dp"
+                        android:paddingBottom="20dp"
+                        android:fontFamily="@font/clashdisplaysemibold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Unlock your POS business potential with\nour loan offers."
+                        android:textColor="@color/white"
+                        android:textSize="12dp"
+                        android:paddingBottom="10dp"
+                        android:fontFamily="@font/clashdisplayregular"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/button_plain">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Request Loan"
+                            android:textSize="12dp"
+                            android:fontFamily="@font/clashdisplaysemibold"
+                            android:textColor="#191616"
+                            android:paddingRight="2dp"/>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/arrow_right"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/i_card6" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

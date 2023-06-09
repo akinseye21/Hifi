@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".SignIn"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="5dp">
+
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="30dp"
+        android:id="@+id/back"
+        android:src="@drawable/arrow_left"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/enterInput"
+        android:layout_below="@+id/back">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign in"
+            android:textSize="24dp"
+            android:textColor="#191616"
+            android:id="@+id/text1"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/clashdisplaysemibold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign in back to your account"
+            android:textSize="12dp"
+            android:textColor="#3f3f46"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/clashdisplayregular"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/clashdisplayregular"
+            android:text="Email"
+            android:textColor="#191616"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_text"
+            android:fontFamily="@font/clashdisplayregular"
+            android:hint="Enter email address"
+            android:inputType="textEmailAddress"
+            android:textColor="#3f3f46"
+            android:textColorHint="#a1a1aa"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/clashdisplayregular"
+            android:text="Password"
+            android:textColor="#191616"
+            android:textSize="13dp" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_text"
+            android:fontFamily="@font/clashdisplayregular"
+            android:hint="Enter password"
+            android:inputType="textPassword"
+            android:textColor="#3f3f46"
+            android:textColorHint="#a1a1aa"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/clashdisplayregular"
+            android:text="Forgot password?"
+            android:textColor="#1C64F2"
+            android:textSize="13dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/bottonlayout"
+        android:layout_alignParentBottom="true">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:id="@+id/loading"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:background="@drawable/card_black"
+            android:padding="10dp">
+            <ProgressBar
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:indeterminateTint="#ffffff"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:text="Signing you in..."
+                android:textSize="10dp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/clashdisplaymedium"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/signin"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/signup1"
+            android:clickable="false"
+            android:fontFamily="@font/clashdisplaybold"
+            android:text="Sign in"
+            android:textAllCaps="false" />
+
+        <LinearLayout
+            android:id="@+id/signUp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="40dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Already have an account? "
+                android:textColor="#191616"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Sign in"
+                android:textColor="#1C64F2"
+                android:textSize="13dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="3dp"
+            android:layout_gravity="center"
+            android:background="@color/black"
+            android:layout_marginBottom="10dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

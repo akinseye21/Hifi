@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BecFraudPrevention"
+    android:background="@color/white"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/first">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/arrow_left"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BEC fraud prevention"
+            android:textSize="15dp"
+            android:fontFamily="@font/clashdisplaysemibold"
+            android:textColor="#191616"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Protect your business from fraud and unauthorized payment request."
+            android:textSize="13dp"
+            android:fontFamily="@font/clashdisplayregular"
+            android:textColor="#191616"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/first">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Name of company/individual"
+                android:textColor="#191616"
+                android:textSize="13dp" />
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edit_text"
+                android:fontFamily="@font/clashdisplayregular"
+                android:hint="Enter full name "
+                android:inputType="textCapSentences"
+                android:textColor="#3f3f46"
+                android:textColorHint="#a1a1aa"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Company website URL"
+                android:textColor="#191616"
+                android:textSize="13dp" />
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edit_text"
+                android:fontFamily="@font/clashdisplayregular"
+                android:hint="Enter website URL"
+                android:inputType="textUri"
+                android:textColor="#3f3f46"
+                android:textColorHint="#a1a1aa"
+                android:textSize="12dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Company location"
+                android:textColor="#191616"
+                android:textSize="13dp" />
+
+            <EditText
+                android:id="@+id/city"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edit_text"
+                android:fontFamily="@font/clashdisplayregular"
+                android:hint="Enter company location"
+                android:inputType="textEmailAddress"
+                android:textColor="#3f3f46"
+                android:textColorHint="#a1a1aa"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Name of person asking for payment"
+                android:textColor="#191616"
+                android:textSize="13dp" />
+
+            <EditText
+                android:id="@+id/requestor"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edit_text"
+                android:fontFamily="@font/clashdisplayregular"
+                android:hint="Enter fullname"
+                android:inputType="text"
+                android:textColor="#3f3f46"
+                android:textColorHint="#a1a1aa"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Amount being requested for"
+                android:textColor="#191616"
+                android:textSize="13dp" />
+
+            <EditText
+                android:id="@+id/landmark"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edit_text"
+                android:fontFamily="@font/clashdisplayregular"
+                android:hint="Enter Amount"
+                android:inputType="number"
+                android:textColor="#3f3f46"
+                android:textColorHint="#a1a1aa"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Upload invoice"
+                android:textColor="#191616"
+                android:textSize="13dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/upload_bg"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/clashdisplaymedium"
+                        android:text="Drop your files here or "
+                        android:textColor="#191616"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/clashdisplaymedium"
+                        android:text="browse"
+                        android:textColor="#3B82F6"
+                        android:textSize="13dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/clashdisplaymedium"
+                    android:text="Maximum size: 50MB"
+                    android:textColor="#A1A1AA"
+                    android:textSize="13dp" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="We use details on the invoice to verify account detail"
+                android:textColor="#191616"
+                android:textSize="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Based on the amount we will charge; 2% of the invoice amount. we will  verify this payment request, if we approve this payment and a dispute arises, we will cover the disputed amount and wave any refund any losses."
+                android:textColor="#191616"
+                android:textSize="10dp" />
+
+
+            <Button
+                android:id="@+id/verify"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/signup1"
+                android:clickable="false"
+                android:fontFamily="@font/clashdisplaybold"
+                android:text="Verify Payment"
+                android:textAllCaps="false"
+                android:textColor="#191616" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
