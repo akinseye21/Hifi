@@ -135,6 +135,7 @@ public class SignIn extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        System.out.println("Signin info = "+response);
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             String user = jsonResponse.getString("user");
@@ -166,6 +167,7 @@ public class SignIn extends AppCompatActivity {
                                 myEdit.putString( "username", username);
                                 myEdit.putString("fullname", full_name);
                                 myEdit.putString("phonenumber", phone_number);
+                                myEdit.putString("token", token);
                                 myEdit.commit();
                                 //send aas intent
                                 Intent i = new Intent(SignIn.this, HomeScreen.class);

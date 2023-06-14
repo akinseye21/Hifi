@@ -35,11 +35,7 @@ public class HomeScreen extends AppCompatActivity {
 
     private TabLayout tabLayout;
     ViewPager viewPager;
-    LinearLayout drawerItemsLayout;
-    ImageView menu;
-    DrawerLayout drawerLayout;
     String passedEmail, passedUsername, passedFullName, passedPhoneNumber;
-    private View overlayView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,81 +49,12 @@ public class HomeScreen extends AppCompatActivity {
         passedFullName = i.getStringExtra("fullname");
         passedPhoneNumber = i.getStringExtra("phonenumber");
 
-        //drawer menu bar
-        overlayView = findViewById(R.id.overlayView);
-        drawerLayout = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        toggle.setDrawerIndicatorEnabled(true);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
-        overlayView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Close the drawer when the overlay is clicked
-                drawerLayout.closeDrawers();
-            }
-        });
-
-        drawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                overlayView.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                overlayView.setVisibility(View.GONE);
-            }
-        });
-
-        menu = findViewById(R.id.menu);
-        drawerItemsLayout = findViewById(R.id.drawer_items_layout);
-        createDrawerItem();
-        menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
-
         //view pager and tab layout
         viewPager = findViewById(R.id.viewpager);
         addTabs(viewPager);
         tabLayout = findViewById(R.id.tablayout);
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
-    }
-
-    private void createDrawerItem() {
-        // Inflate the drawer item layout
-        View drawerItem = getLayoutInflater().inflate(R.layout.drawer_item, drawerItemsLayout, false);
-
-        ImageView back = drawerItem.findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                drawerLayout.closeDrawer(GravityCompat.START);
-            }
-        });
-        TextView personName = drawerItem.findViewById(R.id.username);
-        RelativeLayout myLoans = drawerItem.findViewById(R.id.myLoan);
-        RelativeLayout security = drawerItem.findViewById(R.id.security);
-        RelativeLayout contactUs = drawerItem.findViewById(R.id.contactUs);
-        RelativeLayout termsAndCondition = drawerItem.findViewById(R.id.termsAndConditions);
-
-        personName.setText(passedUsername);
-        myLoans.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeScreen.this, Loans.class));
-            }
-        });
-
-
-        // Add the item to the drawer layout
-        drawerItemsLayout.addView(drawerItem);
     }
 
     private void setupTabIcons() {

@@ -13,6 +13,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "PSTK_PUBLIC_KEY", PSTK_PUBLIC_KEY)
     }
 
     buildTypes {
@@ -38,4 +39,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //paystack
+    implementation 'co.paystack.android:paystack:3.1.3'
 }

@@ -34,6 +34,7 @@
             android:layout_height="wrap_content"
             android:text="Payment successful"
             android:textSize="24dp"
+            android:id="@+id/text1"
             android:textColor="#191616"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/clashdisplaysemibold"/>
@@ -43,6 +44,7 @@
             android:text="Your outlet is now being protected against\n unforeseen circumstances"
             android:textSize="13dp"
             android:textColor="#3f3f46"
+            android:id="@+id/text2"
             android:gravity="center"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/clashdisplayregular"/>

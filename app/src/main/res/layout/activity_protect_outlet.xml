@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:text="Buy cover for one outlet"
             android:textSize="15dp"
+            android:id="@+id/textHead"
             android:fontFamily="@font/clashdisplaysemibold"
             android:textColor="#191616"
             android:layout_marginTop="20dp"/>
@@ -133,6 +134,7 @@
                 android:layout_height="150dp"
                 android:orientation="vertical"
                 android:layout_gravity="center"
+                android:id="@+id/upload"
                 android:gravity="center"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/upload_bg">
@@ -140,6 +142,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/text1"
                     android:orientation="horizontal">
                     <TextView
                         android:layout_width="wrap_content"
@@ -159,34 +162,51 @@
 
                 </LinearLayout>
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/clashdisplaymedium"
-                    android:text="Maximum size: 50MB"
-                    android:textColor="#A1A1AA"
-                    android:layout_marginTop="10dp"
-                    android:textSize="13dp" />
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/img1"
+                        android:id="@+id/image"
+                        android:visibility="gone"
+                        android:layout_marginRight="10dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/clashdisplaymedium"
+                        android:id="@id/text2"
+                        android:text="Maximum size: 50MB"
+                        android:textColor="#A1A1AA"
+                        android:layout_marginTop="10dp"
+                        android:textSize="13dp" />
+
+                </LinearLayout>
 
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/protectOutlet"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/button_black"
-                android:clickable="false"
-                android:fontFamily="@font/clashdisplaybold"
-                android:text="Protect my outlet"
-                android:textColor="#ffffff"
-                android:textAllCaps="false" />
+
 
 
 
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/protectOutlet"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/signup1"
+        android:clickable="false"
+        android:fontFamily="@font/clashdisplaybold"
+        android:text="Protect my outlet"
+        android:textAllCaps="false"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"/>
 
     <View
         android:layout_width="100dp"

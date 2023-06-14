@@ -46,6 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/first"
+        android:layout_marginBottom="100dp"
         android:scrollbars="none">
 
         <LinearLayout
@@ -63,7 +64,7 @@
                 android:textSize="13dp" />
 
             <EditText
-                android:id="@+id/name"
+                android:id="@+id/fullName"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
@@ -73,7 +74,8 @@
                 android:inputType="textCapSentences"
                 android:textColor="#3f3f46"
                 android:textColorHint="#a1a1aa"
-                android:textSize="12dp" />
+                android:textSize="12dp"
+                android:singleLine="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -95,7 +97,8 @@
                 android:inputType="textCapSentences"
                 android:textColor="#3f3f46"
                 android:textColorHint="#a1a1aa"
-                android:textSize="12dp" />
+                android:textSize="12dp"
+                android:singleLine="true"/>
 
 
             <TextView
@@ -108,7 +111,7 @@
                 android:textSize="13dp" />
 
             <EditText
-                android:id="@+id/city"
+                android:id="@+id/phoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
@@ -118,7 +121,8 @@
                 android:inputType="number"
                 android:textColor="#3f3f46"
                 android:textColorHint="#a1a1aa"
-                android:textSize="12dp" />
+                android:textSize="12dp"
+                android:singleLine="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -130,7 +134,7 @@
                 android:textSize="13dp" />
 
             <EditText
-                android:id="@+id/requestor"
+                android:id="@+id/bvn"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
@@ -140,7 +144,8 @@
                 android:inputType="number"
                 android:textColor="#3f3f46"
                 android:textColorHint="#a1a1aa"
-                android:textSize="12dp" />
+                android:textSize="12dp"
+                android:singleLine="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -152,7 +157,7 @@
                 android:textSize="13dp" />
 
             <EditText
-                android:id="@+id/landmark"
+                android:id="@+id/nin"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
@@ -162,7 +167,8 @@
                 android:inputType="number"
                 android:textColor="#3f3f46"
                 android:textColorHint="#a1a1aa"
-                android:textSize="12dp" />
+                android:textSize="12dp"
+                android:singleLine="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -184,7 +190,9 @@
                 android:inputType="number"
                 android:textColor="#3f3f46"
                 android:textColorHint="#a1a1aa"
-                android:textSize="12dp" />
+                android:textSize="12dp"
+                android:maxLength="10"
+                android:singleLine="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -206,27 +214,116 @@
                 android:inputType="number"
                 android:textColor="#3f3f46"
                 android:textColorHint="#a1a1aa"
-                android:textSize="12dp" />
+                android:textSize="12dp"
+                android:singleLine="true"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Amount being requested for"
+                android:textColor="#191616"
+                android:textSize="13dp" />
 
-
-            <Button
-                android:id="@+id/continued"
+            <EditText
+                android:id="@+id/amount"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/signup1"
-                android:clickable="false"
-                android:fontFamily="@font/clashdisplaybold"
-                android:text="Verify Payment"
-                android:textAllCaps="false"
-                android:textColor="#191616" />
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/edit_text"
+                android:fontFamily="@font/clashdisplayregular"
+                android:hint="Enter amount"
+                android:inputType="number"
+                android:textColor="#3f3f46"
+                android:textColorHint="#a1a1aa"
+                android:textSize="12dp"
+                android:singleLine="true"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Upload POS outlet picture"
+                android:textColor="#191616"
+                android:textSize="13dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:id="@+id/uploadFile"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/upload_bg">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/text1"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/clashdisplaymedium"
+                        android:text="Drop your files here or "
+                        android:textColor="#191616"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/clashdisplaymedium"
+                        android:text="browse"
+                        android:textColor="#3B82F6"
+                        android:textSize="13dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/img1"
+                        android:id="@+id/image"
+                        android:visibility="gone"
+                        android:layout_marginRight="10dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/clashdisplaymedium"
+                        android:id="@id/text2"
+                        android:text="Maximum size: 50MB"
+                        android:textColor="#A1A1AA"
+                        android:layout_marginTop="10dp"
+                        android:textSize="13dp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
 
+    <Button
+        android:id="@+id/continued"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/signup1"
+        android:clickable="false"
+        android:fontFamily="@font/clashdisplaybold"
+        android:text="Continue"
+        android:textAllCaps="false"
+        android:textColor="#191616" />
 
 
     <View

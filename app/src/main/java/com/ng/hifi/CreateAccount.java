@@ -251,23 +251,23 @@ public class CreateAccount extends AppCompatActivity {
                                 i.putExtra("username", username.getText().toString().trim());
                                 startActivity(i);
                             }else{
-                                Toast.makeText(CreateAccount.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(CreateAccount.this, "Registration failed 1", Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                             loading.setVisibility(View.GONE);
-                            System.out.println("Registration failed = "+e.getMessage());
-                            Toast.makeText(CreateAccount.this, "Registration Failed, please try again", Toast.LENGTH_SHORT).show();
+                            System.out.println("Registration failed 3 = "+e.getMessage());
+                            Toast.makeText(CreateAccount.this, "Registration Failed 2, please try again", Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        Toast.makeText(CreateAccount.this, "Registration Failed, please try again", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CreateAccount.this, "Registration Failed 3, please try again", Toast.LENGTH_SHORT).show();
                         loading.setVisibility(View.GONE);
-                        System.out.println("Registration failed = "+volleyError.getCause());
+                        System.out.println("Registration failed 3 = "+volleyError.getCause());
                         volleyError.printStackTrace();
                     }
                 }){

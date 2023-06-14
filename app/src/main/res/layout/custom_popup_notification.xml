@@ -129,11 +129,11 @@
                     android:fontFamily="@font/clashdisplayregular"
                     android:hint="Enter card number"
                     android:inputType="number"
-                    android:maxLength="16"
+                    android:maxLength="20"
+                    android:singleLine="true"
                     android:textColor="#3f3f46"
                     android:textColorHint="#a1a1aa"
-                    android:textSize="12dp"
-                    android:singleLine="true"/>
+                    android:textSize="12dp" />
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"

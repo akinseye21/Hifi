@@ -8,11 +8,14 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class ConfirmationPage extends AppCompatActivity {
 
     ImageView back;
     Button home;
+    TextView text1, text2;
+    String from;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +23,14 @@ public class ConfirmationPage extends AppCompatActivity {
         setContentView(R.layout.activity_confirmation_page);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        Intent i = getIntent();
+        from = i.getStringExtra("from");
+
         back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+                startActivity(new Intent(ConfirmationPage.this, HomeScreen.class));
             }
         });
         home = findViewById(R.id.home);
@@ -34,6 +40,14 @@ public class ConfirmationPage extends AppCompatActivity {
                 startActivity(new Intent(ConfirmationPage.this, HomeScreen.class));
             }
         });
+
+        text1 = findViewById(R.id.text1);
+        text2 = findViewById(R.id.text2);
+
+        if (from.equals("BecFraudPrevention")){
+            text1.setText("Verification Successful");
+            text2.setText("Your payment has been successfully verified");
+        }
 
 
     }

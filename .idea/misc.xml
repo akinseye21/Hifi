@@ -23,7 +23,7 @@
         <entry key="app/src/main/res/drawable/gradient_black.xml" value="0.1775" />
         <entry key="app/src/main/res/drawable/signup1.xml" value="0.1365" />
         <entry key="app/src/main/res/drawable/upload_bg.xml" value="0.132" />
-        <entry key="app/src/main/res/layout/activity_bec_fraud_prevention.xml" value="0.21105072463768115" />
+        <entry key="app/src/main/res/layout/activity_bec_fraud_prevention.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_confirmation_page.xml" value="0.21105072463768115" />
         <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_home_screen.xml" value="0.25" />
@@ -37,10 +37,12 @@
         <entry key="app/src/main/res/layout/activity_verification_by.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_verification_option.xml" value="0.22589965820312502" />
         <entry key="app/src/main/res/layout/activity_verify_phone.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/custom_popup_loading.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/custom_popup_notification.xml" value="0.25" />
         <entry key="app/src/main/res/layout/drawer_item.xml" value="0.21105072463768115" />
         <entry key="app/src/main/res/layout/fragment_bec_prevention.xml" value="0.29739583333333336" />
         <entry key="app/src/main/res/layout/fragment_home_fragment.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_loans.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/slide_layout.xml" value="0.165" />
       </map>
     </option>

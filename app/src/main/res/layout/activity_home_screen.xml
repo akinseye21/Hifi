@@ -24,19 +24,11 @@
                 android:background="#d4d4d8"
                 android:layout_above="@+id/tablayout"/>
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/menu"
-                android:id="@+id/menu"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"/>
 
             <androidx.viewpager.widget.ViewPager
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/viewpager"
-                android:layout_below="@+id/menu"
                 android:layout_marginBottom="70dp">
             </androidx.viewpager.widget.ViewPager>
 

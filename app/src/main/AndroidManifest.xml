@@ -72,4 +72,8 @@
         </activity>
     </application>
 
+    <meta-data
+        android:name="co.paystack.android.PublicKey"
+        android:value="pk_test_1f321cbb5ab36541925e805fd73e321f0ca07967"/>
+
 </manifest>
