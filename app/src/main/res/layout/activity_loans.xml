@@ -108,7 +108,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/button_black"
-        android:clickable="false"
+        android:clickable="true"
         android:layout_alignParentBottom="true"
         android:fontFamily="@font/clashdisplaybold"
         android:text="Pay back loan"

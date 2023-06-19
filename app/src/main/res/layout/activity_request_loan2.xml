@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RequestLoan"
+    tools:context=".RequestLoan2"
     android:background="@color/white"
     android:paddingTop="20dp"
     android:paddingLeft="20dp"
@@ -35,7 +35,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Request a loan for your POS business now."
+            android:text="You can request for a loan and get funded instantly"
             android:textSize="13dp"
             android:fontFamily="@font/clashdisplayregular"
             android:textColor="#191616"
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:fontFamily="@font/clashdisplayregular"
-                android:text="Full Name"
+                android:text="Name of company/individual"
                 android:textColor="#191616"
                 android:textSize="13dp" />
 
@@ -83,18 +83,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/clashdisplayregular"
-                android:text="Address"
+                android:text="Name of POS outlet"
                 android:textColor="#191616"
                 android:textSize="13dp" />
 
             <EditText
-                android:id="@+id/address"
+                android:id="@+id/posName"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edit_text"
                 android:fontFamily="@font/clashdisplayregular"
-                android:hint="Enter home address"
+                android:hint="Enter name of POS stand"
                 android:inputType="textCapSentences"
                 android:textColor="#3f3f46"
                 android:textColorHint="#a1a1aa"
@@ -107,19 +107,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/clashdisplayregular"
-                android:text="Phone"
+                android:text="Address of POS outlet"
                 android:textColor="#191616"
                 android:textSize="13dp" />
 
             <EditText
-                android:id="@+id/phoneNumber"
+                android:id="@+id/posAddress"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edit_text"
                 android:fontFamily="@font/clashdisplayregular"
-                android:hint="Enter phone number"
-                android:inputType="number"
+                android:hint="Enter POS outlet address"
+                android:inputType="textCapSentences"
                 android:textColor="#3f3f46"
                 android:textColorHint="#a1a1aa"
                 android:textSize="12dp"
@@ -130,100 +130,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/clashdisplayregular"
-                android:text="BVN"
-                android:textColor="#191616"
-                android:textSize="13dp" />
-
-            <EditText
-                android:id="@+id/bvn"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edit_text"
-                android:fontFamily="@font/clashdisplayregular"
-                android:hint="Enter BVN"
-                android:inputType="number"
-                android:textColor="#3f3f46"
-                android:textColorHint="#a1a1aa"
-                android:textSize="12dp"
-                android:singleLine="true"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/clashdisplayregular"
-                android:text="NIN"
-                android:textColor="#191616"
-                android:textSize="13dp" />
-
-            <EditText
-                android:id="@+id/nin"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edit_text"
-                android:fontFamily="@font/clashdisplayregular"
-                android:hint="Enter NIN"
-                android:inputType="number"
-                android:textColor="#3f3f46"
-                android:textColorHint="#a1a1aa"
-                android:textSize="12dp"
-                android:singleLine="true"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/clashdisplayregular"
-                android:text="Bank Account"
-                android:textColor="#191616"
-                android:textSize="13dp" />
-
-            <EditText
-                android:id="@+id/bankName"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edit_text"
-                android:fontFamily="@font/clashdisplayregular"
-                android:hint="Enter bank name"
-                android:inputType="number"
-                android:textColor="#3f3f46"
-                android:textColorHint="#a1a1aa"
-                android:textSize="12dp"
-                android:maxLength="10"
-                android:singleLine="true"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/clashdisplayregular"
-                android:text="POS Outlet Number"
-                android:textColor="#191616"
-                android:textSize="13dp" />
-
-            <EditText
-                android:id="@+id/outletNumber"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/edit_text"
-                android:fontFamily="@font/clashdisplayregular"
-                android:hint="Enter outlet number"
-                android:inputType="number"
-                android:textColor="#3f3f46"
-                android:textColorHint="#a1a1aa"
-                android:textSize="12dp"
-                android:singleLine="true"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/clashdisplayregular"
-                android:text="Amount being requested for"
+                android:text="Amount being requested for "
                 android:textColor="#191616"
                 android:textSize="13dp" />
 
@@ -313,16 +220,16 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/continued"
+        android:id="@+id/requestLoan"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="30dp"
-        android:layout_alignParentBottom="true"
         android:background="@drawable/signup1"
         android:clickable="false"
         android:fontFamily="@font/clashdisplaybold"
-        android:text="Continue"
+        android:text="Request Loan"
         android:textAllCaps="false"
         android:textColor="#191616" />
 
@@ -335,6 +242,5 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"/>
-
 
 </RelativeLayout>

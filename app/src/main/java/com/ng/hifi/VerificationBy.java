@@ -2,7 +2,13 @@ package com.ng.hifi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +17,22 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class VerificationBy extends AppCompatActivity {
 
@@ -19,7 +41,9 @@ public class VerificationBy extends AppCompatActivity {
     LinearLayout lin_txt3;
     Button openEmail;
     String verify_by;
-    String fullName, s_phoneNumber, s_emailAddress, username;
+    String fullName, s_phoneNumber, s_emailAddress, username, response;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +67,7 @@ public class VerificationBy extends AppCompatActivity {
         s_phoneNumber = i.getStringExtra("phone");
         s_emailAddress = i.getStringExtra("email");
         username = i.getStringExtra("username");
+        response = i.getStringExtra("response");
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,14 +78,18 @@ public class VerificationBy extends AppCompatActivity {
         if (verify_by.equals("phone")){
             image.setImageResource(R.drawable.img6);
             txt1.setText("Phone Verification");
-            txt2.setText("You will receive a 4-digit code to verify");
+//            txt2.setText("...............");
+            txt2.setText("You have received a 4-digit code to verify");
             lin_txt3.setVisibility(View.GONE);
             txt4.setVisibility(View.GONE);
+//            txt4.setText("\n"+response);
             openEmail.setText("Continue");
             openEmail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                     Intent i = new Intent(VerificationBy.this, VerifyPhone.class);
+                    i.putExtra("response", response);
                     i.putExtra("phone", s_phoneNumber);
                     startActivity(i);
                 }
@@ -71,12 +100,26 @@ public class VerificationBy extends AppCompatActivity {
             openEmail.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
+                    //Use the email API to send authentication link to user email
+
+
                     //intent to open email in user phone
                     Intent mailClient = new Intent(Intent.ACTION_VIEW);
-                    mailClient.setClassName("com.google.android.gm", "com.google.android.gm.ConversationListActivity");
-                    startActivity(mailClient);
+                    mailClient.addCategory(Intent.CATEGORY_APP_EMAIL);
+                    mailClient.setPackage("com.google.android.gm");
+                    // Verify that there is an activity that can handle the intent
+                    PackageManager packageManager = getPackageManager();
+                    if (mailClient.resolveActivity(packageManager) != null) {
+                        startActivity(mailClient);
+                    } else {
+                        // Handle the case when the Gmail app is not installed
+                        Toast.makeText(VerificationBy.this, "No mail client installed", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         }
     }
+
+
 }

@@ -21,6 +21,7 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:id="@+id/back"
             android:src="@drawable/arrow_left"/>
 
         <LinearLayout
@@ -60,6 +61,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="300,000"
+                    android:id="@+id/totalLoan"
                     android:fontFamily="@font/clashdisplaysemibold"
                     android:textSize="20dp"
                     android:textColor="#ffffff"/>
@@ -68,6 +70,7 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="5dp"
+                    android:id="@+id/visibility"
                     android:src="@drawable/visibility"/>
             </LinearLayout>
 
@@ -85,16 +88,40 @@
             android:layout_marginTop="30dp"
             android:textColor="#191616"/>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp"
+            android:id="@+id/noLoan"
+            android:visibility="gone"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/notification"
+                app:tint="#A1A1AA" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="You currently have no paid loan(s)"
+                android:textColor="#A1A1AA"
+                android:textSize="12dp"
+                android:padding="10dp"
+                android:fontFamily="@font/clashdisplaymedium"/>
+        </LinearLayout>
+
         <ListView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            />
+            android:id="@+id/listview"/>
 
     </LinearLayout>
 
 
     <Button
-        android:id="@+id/payBack"
+        android:id="@+id/requestLoan"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_alignParentBottom="true"

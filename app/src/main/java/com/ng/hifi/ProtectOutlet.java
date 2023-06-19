@@ -90,6 +90,7 @@ public class ProtectOutlet extends AppCompatActivity {
     TextView textHead;
 
     public static final String CREATE_POS_OUTLET = "https://gamaplaybackend-production.up.railway.app/api/v1/outlets/create/";
+    public static final String CREATE_NOTIFICATION = "https://gamaplaybackend-production.up.railway.app/api/v1/notifications/create_get_user_notification/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -464,7 +465,7 @@ public class ProtectOutlet extends AppCompatActivity {
                         Card card = new Card(theCardNumber, expiryMonth, expiryYear, theCardCVV);
                         if (card.isValid()) {
                             // charge card
-                            performCharge(theCardNumber, expiryMonth, expiryYear, theCardCVV);
+                            performCharge(displayName, uri, theCardNumber, expiryMonth, expiryYear, theCardCVV);
                         } else {
                             //do something
                             Toast.makeText(ProtectOutlet.this, "Invalid Card", Toast.LENGTH_SHORT).show();
@@ -473,7 +474,7 @@ public class ProtectOutlet extends AppCompatActivity {
                         // integrate paystack gateway  here
 
                         // if payment is successful, save in the DB-API
-//                        uploadInfo(displayName, uri);
+
                     }
                 });
             }
@@ -494,14 +495,31 @@ public class ProtectOutlet extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
-                        // integrate paystack gateway  here
+                        // integrate paystack gateway here
 
-                        //get bank codes from API https://api.paystack.co/bank
-                        //
+                        //get the account number
+                        //verify the account number
+                        //get bank codes from API https://api.paystack.co/bank?currency=NGN or https://api.paystack.co/bank?currency=NGN&type=nuban (GET) request
+                        //create transfer recipient - make a POST request to the Transfer RecipientAPI passing customer’s bank account detail:
+                        /*
+                            curl https://api.paystack.co/transferrecipient
+                            -H "Authorization: Bearer YOUR_SECRET_KEY"
+                            -H "Content-Type: application/json"
+                            -d '{ "type": "nuban",
+                                    "name": "John Doe",
+                                    "account_number": "0001234567",
+                                    "bank_code": "058",
+                                    "currency": "NGN"
+                                }'
+                            -X POST
+                         */
+                        //from the response, get the 'recipient_code'
+                        //generate a transfer reference
+
 
 
                         // if payment is successful, save in the DB-API
-                        uploadInfo(displayName, uri);
+//                        uploadInfo(displayName, uri);
                     }
                 });
             }
@@ -539,11 +557,9 @@ public class ProtectOutlet extends AppCompatActivity {
 
                                 if(message.equals("Outlet created successfully")){
                                     myDialogLoading.dismiss();
-                                    Toast.makeText(ProtectOutlet.this, "Outlet Created successfully ", Toast.LENGTH_LONG).show();
-                                    // got to confirmation page
-                                    Intent i = new Intent(ProtectOutlet.this, ConfirmationPage.class);
-                                    i.putExtra("from", "ProtectOutlet");
-                                    startActivity(i);
+                                    //create Notification here
+                                    createNotification();
+
                                 }
 
                             } catch (JSONException e) {
@@ -619,6 +635,87 @@ public class ProtectOutlet extends AppCompatActivity {
 
     }
 
+    private void createNotification() {
+
+        myDialogLoading = new Dialog(ProtectOutlet.this);
+        myDialogLoading.setContentView(R.layout.custom_popup_loading);
+        TextView text = myDialogLoading.findViewById(R.id.text);
+        text.setText("Getting object data...");
+        myDialogLoading.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        myDialogLoading.setCanceledOnTouchOutside(false);
+        myDialogLoading.show();
+
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, CREATE_NOTIFICATION,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        System.out.println("Notification response = "+response);
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            String id = jsonResponse.getString("id");
+                            String message = jsonResponse.getString("message");
+                            String sentTo = jsonResponse.getString("sentTo");
+                            String is_read = jsonResponse.getString("is_read");
+                            String date = jsonResponse.getString("date_sent");
+
+                            myDialogLoading.dismiss();
+                            Toast.makeText(ProtectOutlet.this, "Outlet Created successfully ", Toast.LENGTH_LONG).show();
+                            // got to confirmation page
+                            Intent i = new Intent(ProtectOutlet.this, ConfirmationPage.class);
+                            i.putExtra("from", "ProtectOutlet");
+                            startActivity(i);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            myDialogLoading.dismiss();
+                            Toast.makeText(ProtectOutlet.this, "Problem creating Notification", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        myDialogLoading.dismiss();
+                        if (volleyError.networkResponse != null){
+
+                            byte[] responseData = volleyError.networkResponse.data;
+                            if (responseData != null) {
+                                System.out.println("Error creating notification "+new String(responseData));
+                                Toast.makeText(ProtectOutlet.this, new String(responseData), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        volleyError.printStackTrace();
+                    }
+                }){
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap<>();
+                params.put("Content-Type", "application/json");
+                params.put("message", "You have successfully created POS outlet "+posName.getText().toString());
+                return params;
+            }
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Token "+token);//add authentication token
+                return headers;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        DefaultRetryPolicy retryPolicy = new DefaultRetryPolicy(0, -1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(retryPolicy);
+        requestQueue.add(stringRequest);
+        requestQueue.addRequestFinishedListener(new RequestQueue.RequestFinishedListener<Object>() {
+            @Override
+            public void onRequestFinished(Request<Object> request) {
+                requestQueue.getCache().clear();
+            }
+        });
+
+    }
+
 
     @SuppressLint("Range")
     @Override
@@ -681,7 +778,17 @@ public class ProtectOutlet extends AppCompatActivity {
         return byteBuffer.toByteArray();
     }
 
-    private void performCharge(String theCardNumber, int expiryMonth, int expiryYear, String theCardCVV) {
+    private void performCharge(String displayName, Uri uri, String theCardNumber, int expiryMonth, int expiryYear, String theCardCVV) {
+
+        //checking card
+        myDialogLoading = new Dialog(ProtectOutlet.this);
+        myDialogLoading.setContentView(R.layout.custom_popup_loading);
+        TextView text = myDialogLoading.findViewById(R.id.text);
+        text.setText("Checking card...");
+        myDialogLoading.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        myDialogLoading.setCanceledOnTouchOutside(false);
+        myDialogLoading.show();
+
 
         Card card = new Card(theCardNumber, expiryMonth, expiryYear, theCardCVV);
 
@@ -694,8 +801,10 @@ public class ProtectOutlet extends AppCompatActivity {
             @Override
             public void onSuccess(Transaction transaction) {
                 System.out.println("Paystack Transaction = "+transaction);
-                startActivity(new Intent(ProtectOutlet.this, ConfirmationPage.class));
+//                startActivity(new Intent(ProtectOutlet.this, ConfirmationPage.class));
 //                parseResponse(transaction.getReference());
+                myDialogLoading.dismiss();
+                uploadInfo(displayName, uri);
             }
 
             @Override
@@ -710,9 +819,9 @@ public class ProtectOutlet extends AppCompatActivity {
 
             @Override
             public void onError(Throwable error, Transaction transaction) {
+                myDialogLoading.dismiss();
+                Toast.makeText(ProtectOutlet.this, "Problem with card. "+error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 System.out.println("Paystack Transaction error = "+error.getLocalizedMessage());
-//                Log.d("Main Activity", "onError: " + error.getLocalizedMessage());
-//                Log.d("Main Activity", "onError: " + error);
             }
 
         });

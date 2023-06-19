@@ -2,21 +2,19 @@ package com.ng.hifi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -26,7 +24,6 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -34,12 +31,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class SignIn extends AppCompatActivity {
 
+    ImageView back;
     EditText emailAddress, password;
     Boolean emailBool = false, passwordBool = false;
     Button signIn;
@@ -48,6 +45,7 @@ public class SignIn extends AppCompatActivity {
     SharedPreferences preferences;
 
     public static final String SIGN_IN = "https://gamaplaybackend-production.up.railway.app/api/v1/users/login/";
+    public static final String GET_REF_CODE = "https://gamaplaybackend-production.up.railway.app/api/v1/users/get_user_referal_code/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +53,13 @@ public class SignIn extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SignIn.this, MainActivity.class));
+            }
+        });
         emailAddress = findViewById(R.id.email);
         password = findViewById(R.id.password);
         signIn = findViewById(R.id.signin);
@@ -159,23 +164,8 @@ public class SignIn extends AppCompatActivity {
                             }
 
                             if (!token.equals("")){
-                                loading.setVisibility(View.GONE);
-                                //save in sharedpreferences
-                                preferences = getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
-                                final SharedPreferences.Editor myEdit = preferences.edit();
-                                myEdit.putString( "email", email);
-                                myEdit.putString( "username", username);
-                                myEdit.putString("fullname", full_name);
-                                myEdit.putString("phonenumber", phone_number);
-                                myEdit.putString("token", token);
-                                myEdit.commit();
-                                //send aas intent
-                                Intent i = new Intent(SignIn.this, HomeScreen.class);
-                                i.putExtra("email", email);
-                                i.putExtra("username", username);
-                                i.putExtra("fullname", full_name);
-                                i.putExtra("phonenumber", phone_number);
-                                startActivity(i);
+                                //get user referral code
+                                getRefCode(token, email, username, full_name, phone_number);
                             }else{
                                 loading.setVisibility(View.GONE);
                                 Toast.makeText(SignIn.this, "Authentication Failed, please try again", Toast.LENGTH_SHORT).show();
@@ -192,9 +182,16 @@ public class SignIn extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        Toast.makeText(SignIn.this, "Authentication Failed, please try again", Toast.LENGTH_SHORT).show();
+
                         loading.setVisibility(View.GONE);
-                        System.out.println("Sign in error response = "+volleyError.getCause());
+                        if (volleyError.networkResponse != null){
+
+                            byte[] responseData = volleyError.networkResponse.data;
+                            if (responseData != null) {
+                                System.out.println("Sign in error response = "+new String(responseData));
+                                Toast.makeText(SignIn.this, new String(responseData), Toast.LENGTH_SHORT).show();
+                            }
+                        }
                         volleyError.printStackTrace();
                     }
                 }){
@@ -218,5 +215,70 @@ public class SignIn extends AppCompatActivity {
                 requestQueue.getCache().clear();
             }
         });
+    }
+
+    private void getRefCode(String token, String email, String username, String full_name, String phone_number) {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, GET_REF_CODE,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            String code = jsonResponse.getString("code");
+                            //add code to the sharedpreference
+
+                            loading.setVisibility(View.GONE);
+                            //save in sharedpreferences
+                            preferences = getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
+                            final SharedPreferences.Editor myEdit = preferences.edit();
+                            myEdit.putString( "email", email);
+                            myEdit.putString( "username", username);
+                            myEdit.putString("fullname", full_name);
+                            myEdit.putString("phonenumber", phone_number);
+                            myEdit.putString("referralCode", code);
+                            myEdit.putString("token", token);
+                            myEdit.commit();
+                            //send as intent
+                            Intent i = new Intent(SignIn.this, HomeScreen.class);
+                            i.putExtra("from", "SignIn");
+                            startActivity(i);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            loading.setVisibility(View.GONE);
+                            Toast.makeText(SignIn.this, "Could not get user code", Toast.LENGTH_SHORT).show();
+                            System.out.println("Could not get referral code for user");
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+//                        Toast.makeText(SignIn.this, "Could not get user code", Toast.LENGTH_SHORT).show();
+                        System.out.println("Sign in error response = "+new String(volleyError.networkResponse.data));
+                        Toast.makeText(SignIn.this, new String(volleyError.networkResponse.data), Toast.LENGTH_SHORT).show();
+                        volleyError.printStackTrace();
+                    }
+                }){
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Token "+token);//add authentication token
+                return headers;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        DefaultRetryPolicy retryPolicy = new DefaultRetryPolicy(0, -1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(retryPolicy);
+        requestQueue.add(stringRequest);
+        requestQueue.addRequestFinishedListener(new RequestQueue.RequestFinishedListener<Object>() {
+            @Override
+            public void onRequestFinished(Request<Object> request) {
+                requestQueue.getCache().clear();
+            }
+        });
+
+
     }
 }

@@ -62,7 +62,7 @@ public class BecPreventionFragment extends Fragment {
         requestLoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getContext(), RequestLoan.class);
+                Intent i = new Intent(getContext(), RequestLoan2.class);
                 startActivity(i);
             }
         });

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -85,21 +86,45 @@
                     android:gravity="center"
                     android:paddingLeft="40dp"
                     android:paddingRight="40dp"
-                    android:textColor="#A1A1AA"
-                    android:text="Pending loans" />
+                    android:text="Pending loans"
+                    android:textColor="#A1A1AA" />
             </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="10dp"
+                android:id="@+id/noLoan"
+                android:visibility="gone"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/notification"
+                    app:tint="#A1A1AA" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="You currently have no loan"
+                    android:textColor="#A1A1AA"
+                    android:textSize="12dp"
+                    android:padding="10dp"
+                    android:fontFamily="@font/clashdisplaymedium"/>
+            </LinearLayout>
 
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/listAllLoans"
-                android:visibility="gone"/>
+                android:visibility="visible"/>
 
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/listPendingLoans"
-                android:visibility="visible"/>
+                android:visibility="gone"/>
 
 
         </LinearLayout>
@@ -108,10 +133,10 @@
             android:id="@+id/payBack"
             android:layout_width="match_parent"
             android:layout_height="55dp"
+            android:layout_alignParentBottom="true"
             android:layout_marginTop="40dp"
             android:background="@drawable/button_black"
-            android:clickable="false"
-            android:layout_alignParentBottom="true"
+            android:clickable="true"
             android:fontFamily="@font/clashdisplaybold"
             android:text="Pay back loan"
             android:textAllCaps="false"

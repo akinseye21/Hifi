@@ -35,7 +35,8 @@ public class HomeScreen extends AppCompatActivity {
 
     private TabLayout tabLayout;
     ViewPager viewPager;
-    String passedEmail, passedUsername, passedFullName, passedPhoneNumber;
+    String passedEmail, passedUsername, passedFullName, passedPhoneNumber, from;
+    SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +44,14 @@ public class HomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        preferences = getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
+        passedEmail = preferences.getString("email", "");
+        passedUsername = preferences.getString("username", "");
+        passedFullName = preferences.getString("fullname", "");
+        passedPhoneNumber = preferences.getString("phonenumber", "");
         Intent i = getIntent();
-        passedEmail = i.getStringExtra("email");
-        passedUsername = i.getStringExtra("username");
-        passedFullName = i.getStringExtra("fullname");
-        passedPhoneNumber = i.getStringExtra("phonenumber");
+        from = i.getStringExtra("from");
+
 
         //view pager and tab layout
         viewPager = findViewById(R.id.viewpager);
@@ -55,6 +59,10 @@ public class HomeScreen extends AppCompatActivity {
         tabLayout = findViewById(R.id.tablayout);
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
+
+        if (from.equals("RequestLoan")){
+            navigateFragment(1);
+        }
     }
 
     private void setupTabIcons() {
@@ -101,5 +109,9 @@ public class HomeScreen extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
+    }
+
+    public void navigateFragment(int position){
+        viewPager.setCurrentItem(position);
     }
 }

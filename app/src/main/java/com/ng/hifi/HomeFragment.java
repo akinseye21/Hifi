@@ -1,8 +1,11 @@
 package com.ng.hifi;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -25,10 +29,11 @@ public class HomeFragment extends Fragment {
 
     RelativeLayout protectPOSOutlet, becFraudPrevention;
     SharedPreferences preferences;
-    String username;
+    String username, referralCode;
     TextView name;
     CircleImageView profilePic;
     ViewPager viewPager;
+    ImageView notificationIMG;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -44,8 +49,16 @@ public class HomeFragment extends Fragment {
 
         preferences = getContext().getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
         username = preferences.getString("username", "not available");
+        referralCode = preferences.getString("referralCode", "not available");
 
         viewPager = getActivity().findViewById(R.id.viewpager);
+        notificationIMG = v.findViewById(R.id.notification);
+        notificationIMG.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), Notifications.class));
+            }
+        });
         profilePic = v.findViewById(R.id.profilePic);
         profilePic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,12 +139,44 @@ public class HomeFragment extends Fragment {
                 }
             });
             TextView personName = drawerItem.findViewById(R.id.username);
+            TextView refCode = drawerItem.findViewById(R.id.referralCode);
             RelativeLayout myLoans = drawerItem.findViewById(R.id.myLoan);
             RelativeLayout security = drawerItem.findViewById(R.id.security);
             RelativeLayout contactUs = drawerItem.findViewById(R.id.contactUs);
             RelativeLayout termsAndCondition = drawerItem.findViewById(R.id.termsAndConditions);
-
+            Button logout =  drawerItem.findViewById(R.id.logout);
+            logout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Dialog myDialog = new Dialog(getContext());
+                    myDialog.setContentView(R.layout.custom_popup_logout);
+                    Button yes = myDialog.findViewById(R.id.yes);
+                    Button no = myDialog.findViewById(R.id.no);
+                    no.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            myDialog.dismiss();
+                        }
+                    });
+                    yes.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            //clear shared preference
+                            SharedPreferences.Editor editor = preferences.edit();
+                            editor.clear();
+                            editor.apply();
+                            //go to main activity page
+                            Intent i = new Intent(getContext(), MainActivity.class);
+                            startActivity(i);
+                        }
+                    });
+                    myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                    myDialog.setCanceledOnTouchOutside(false);
+                    myDialog.show();
+                }
+            });
             personName.setText(username);
+            refCode.setText(referralCode);
             myLoans.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

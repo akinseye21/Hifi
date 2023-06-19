@@ -46,7 +46,7 @@ public class CreateAccount extends AppCompatActivity {
     ImageView back;
     LinearLayout loading;
 
-    public static final String SIGN_UP = "https://gamaplaybackend-production.up.railway.app/api/v1/users/register/";
+//    public static final String SIGN_UP = "https://gamaplaybackend-production.up.railway.app/api/v1/users/register/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -200,7 +200,7 @@ public class CreateAccount extends AppCompatActivity {
     }
 
     private void checked() {
-        if (nameBool == true && phoneBool == true && emailBool == true && passwordBool == true && policyBool == true && usernameBool == true){
+        if (nameBool && phoneBool && emailBool && passwordBool && policyBool && usernameBool){
             signUp.setBackgroundResource(R.drawable.button_black);
             signUp.setClickable(true);
             signUp.setTextColor(Color.WHITE);
@@ -208,96 +208,17 @@ public class CreateAccount extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
-                    loading.setVisibility(View.VISIBLE);
-                    SignUpUser();
+                    //go to the next screen for verification
+                    Intent i = new Intent(CreateAccount.this, VerificationOption.class);
+                    i.putExtra("fullname", fullName.getText().toString().trim());
+                    i.putExtra("phone", phoneNumber.getText().toString().trim());
+                    i.putExtra("email", emailAddress.getText().toString().trim());
+                    i.putExtra("username", username.getText().toString().trim());
+                    i.putExtra("password", password.getText().toString().trim());
+                    startActivity(i);
 
                 }
             });
         }
     }
-
-    private void SignUpUser() {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST,SIGN_UP,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            loading.setVisibility(View.GONE);
-                            System.out.println("Registration response = "+response);
-
-                            JSONObject jsonResponse = new JSONObject(response);
-                            String data = jsonResponse.getString("data");
-                            String message = jsonResponse.getString("message");
-
-                            JSONObject jsonObject = new JSONObject(data);
-                            String email = jsonObject.getString("email");
-                            String uname = jsonObject.getString("username");
-                            String fullname = jsonObject.getString("full_name");
-                            String phonenumber = jsonObject.getString("phone_number");
-                            String outlets = jsonObject.getString("outlets");
-                            JSONArray jsonArray = new JSONArray(outlets);
-                            int length = jsonArray.length();
-                            for (int i=0; i<length; i++){
-                                //extract the values of the objects in the array
-                                //or extract the key:value pair in the array as the case may be
-                            }
-
-                            if (message.equals("User registered successfully")){
-                                Toast.makeText(CreateAccount.this, "Registration successful", Toast.LENGTH_SHORT).show();
-                                Intent i = new Intent(CreateAccount.this, VerificationOption.class);
-                                i.putExtra("fullname", fullName.getText().toString().trim());
-                                i.putExtra("phone", phoneNumber.getText().toString().trim());
-                                i.putExtra("email", emailAddress.getText().toString().trim());
-                                i.putExtra("username", username.getText().toString().trim());
-                                startActivity(i);
-                            }else{
-                                Toast.makeText(CreateAccount.this, "Registration failed 1", Toast.LENGTH_SHORT).show();
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            loading.setVisibility(View.GONE);
-                            System.out.println("Registration failed 3 = "+e.getMessage());
-                            Toast.makeText(CreateAccount.this, "Registration Failed 2, please try again", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError volleyError) {
-                        Toast.makeText(CreateAccount.this, "Registration Failed 3, please try again", Toast.LENGTH_SHORT).show();
-                        loading.setVisibility(View.GONE);
-                        System.out.println("Registration failed 3 = "+volleyError.getCause());
-                        volleyError.printStackTrace();
-                    }
-                }){
-            @Override
-            protected Map<String, String> getParams(){
-                Map<String, String> params = new HashMap<>();
-                params.put("Content-Type", "application/json");
-                params.put("email", emailAddress.getText().toString().trim());
-                params.put("username", username.getText().toString().trim());
-                params.put("password", password.getText().toString().trim());
-                params.put("full_name", fullName.getText().toString().trim());
-                params.put("phone_number", phoneNumber.getText().toString().trim());
-                return params;
-            }
-        };
-
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        DefaultRetryPolicy retryPolicy = new DefaultRetryPolicy(0, -1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-        stringRequest.setRetryPolicy(retryPolicy);
-        requestQueue.add(stringRequest);
-        requestQueue.addRequestFinishedListener(new RequestQueue.RequestFinishedListener<Object>() {
-            @Override
-            public void onRequestFinished(Request<Object> request) {
-                requestQueue.getCache().clear();
-            }
-        });
-    }
-
-//    @Override
-//    public void onBackPressed() {
-//        //do nothin
-//    }
 }

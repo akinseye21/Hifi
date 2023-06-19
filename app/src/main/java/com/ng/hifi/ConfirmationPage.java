@@ -30,14 +30,19 @@ public class ConfirmationPage extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ConfirmationPage.this, HomeScreen.class));
+                Intent i = new Intent(ConfirmationPage.this, HomeScreen.class);
+                i.putExtra("from", "ConfirmationPage");
+                startActivity(i);
             }
         });
+
         home = findViewById(R.id.home);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ConfirmationPage.this, HomeScreen.class));
+                Intent i = new Intent(ConfirmationPage.this, HomeScreen.class);
+                i.putExtra("from", "ConfirmationPage");
+                startActivity(i);
             }
         });
 
@@ -47,6 +52,9 @@ public class ConfirmationPage extends AppCompatActivity {
         if (from.equals("BecFraudPrevention")){
             text1.setText("Verification Successful");
             text2.setText("Your payment has been successfully verified");
+        }else if (from.equals("PayBackLoan")){
+            text1.setText("Payment Successful");
+            text2.setText("You have successfully paid back your loan");
         }
 
 

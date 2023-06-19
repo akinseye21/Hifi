@@ -21,6 +21,7 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:id="@+id/back"
             android:src="@drawable/arrow_left"/>
 
         <TextView
@@ -89,13 +90,14 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/clashdisplayregular"/>
             </LinearLayout>
+
             <RadioButton
+                android:id="@+id/radioFull"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="#191616"
-                android:id="@+id/radioFull"
                 android:layout_alignParentRight="true"
-                android:clickable="false"/>
+                android:buttonTint="#191616"
+                android:clickable="false" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -126,13 +128,14 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/clashdisplayregular"/>
             </LinearLayout>
+
             <RadioButton
+                android:id="@+id/radioHalf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="#191616"
-                android:id="@+id/radioHalf"
                 android:layout_alignParentRight="true"
-                android:clickable="false"/>
+                android:buttonTint="#191616"
+                android:clickable="false" />
         </RelativeLayout>
 
     </LinearLayout>
@@ -141,15 +144,14 @@
         android:id="@+id/payBack"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="30dp"
-        android:background="@drawable/button_black"
+        android:background="@drawable/signup1"
         android:clickable="false"
-        android:layout_alignParentBottom="true"
         android:fontFamily="@font/clashdisplaybold"
         android:text="Pay back loan"
-        android:textAllCaps="false"
-        android:textColor="#ffffff" />
+        android:textAllCaps="false" />
 
     <View
         android:layout_width="100dp"
