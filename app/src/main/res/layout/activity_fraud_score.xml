@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FraudScore"
+    android:background="@color/white"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="5dp">
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/back"
+        android:src="@drawable/arrow_left"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/back">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fraud Score"
+            android:textSize="15dp"
+            android:id="@+id/text_1"
+            android:fontFamily="@font/clashdisplaysemibold"
+            android:textColor="#191616"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/button_black"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/white"
+            android:text="Analytics Score: 50"
+            android:fontFamily="@font/clashdisplaybold"
+            android:textAllCaps="false"/>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp"
+            android:id="@+id/score1"
+            android:background="#E02424">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:layout_alignParentLeft="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:strokeColor="@color/black"
+                app:strokeWidth="1dp"
+                app:shapeAppearanceOverlay="@style/CornerCut"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:fontFamily="@font/clashdisplaymedium"
+                android:textColor="#191616"
+                android:text="0% - 25%"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View Recommendation"
+                android:textSize="12dp"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/white"
+                android:fontFamily="@font/clashdisplayregular"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30dp"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:id="@+id/score2"
+            android:background="#2563EB">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:layout_alignParentLeft="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:strokeColor="@color/black"
+                app:strokeWidth="1dp"
+                app:shapeAppearanceOverlay="@style/CornerCut"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:textColor="#191616"
+                android:fontFamily="@font/clashdisplaymedium"
+                android:text="25% - 50%"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View Recommendation"
+                android:textSize="12dp"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/white"
+                android:fontFamily="@font/clashdisplayregular"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30dp"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:id="@+id/score3"
+            android:background="#E3A008">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:layout_alignParentLeft="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:strokeColor="@color/black"
+                app:strokeWidth="1dp"
+                app:shapeAppearanceOverlay="@style/CornerCut"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:textColor="#191616"
+                android:fontFamily="@font/clashdisplaymedium"
+                android:text="50% - 75%"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View Recommendation"
+                android:textSize="12dp"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/white"
+                android:fontFamily="@font/clashdisplayregular"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30dp"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:id="@+id/score4"
+            android:background="#0E9F6E">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:background="@color/white"
+                android:layout_alignParentLeft="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:strokeColor="@color/black"
+                app:strokeWidth="1dp"
+                app:shapeAppearanceOverlay="@style/CornerCut"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:textColor="#191616"
+                android:fontFamily="@font/clashdisplaymedium"
+                android:text="75% - 100%"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View Recommendation"
+                android:textSize="12dp"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/white"
+                android:fontFamily="@font/clashdisplayregular"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="30dp"/>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

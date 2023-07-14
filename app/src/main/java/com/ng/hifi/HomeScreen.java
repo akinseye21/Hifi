@@ -68,7 +68,7 @@ public class HomeScreen extends AppCompatActivity {
     private void setupTabIcons() {
         tabLayout.getTabAt(0).setIcon(R.drawable.home);
         tabLayout.getTabAt(1).setIcon(R.drawable.bec_prevention);
-        tabLayout.getTabAt(2).setIcon(R.drawable.loan);
+        tabLayout.getTabAt(2).setIcon(R.drawable.pos);
         tabLayout.getTabAt(3).setIcon(R.drawable.online_payment);
     }
 
@@ -76,7 +76,7 @@ public class HomeScreen extends AppCompatActivity {
         HomeScreen.ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new HomeFragment(), "Home");
         adapter.addFrag(new BecPreventionFragment(), "BEC Prevention");
-        adapter.addFrag(new LoansFragment(), "Loans");
+        adapter.addFrag(new BecPreventionFragment(), "POS");
         adapter.addFrag(new OnlinePaymentFragment(), "Online Payment");
         viewPager.setAdapter(adapter);
     }

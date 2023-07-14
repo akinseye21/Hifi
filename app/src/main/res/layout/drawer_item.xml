@@ -125,7 +125,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/security"
+            android:id="@+id/kyc"
             android:layout_marginTop="20dp">
             <ImageView
                 android:layout_width="30dp"
@@ -133,15 +133,16 @@
                 android:src="@drawable/bec_prevention"
                 app:tint="#191616"
                 android:layout_centerVertical="true"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:text="Security"
-                android:textSize="15dp"
-                android:textColor="#191616"
                 android:layout_centerVertical="true"
-                android:fontFamily="@font/clashdisplaymedium"/>
+                android:layout_marginLeft="50dp"
+                android:fontFamily="@font/clashdisplaymedium"
+                android:text="KYC"
+                android:textColor="#191616"
+                android:textSize="15dp" />
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"

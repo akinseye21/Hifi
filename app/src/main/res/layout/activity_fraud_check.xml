@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FraudCheck"
+    android:background="@color/white"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="5dp">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/arrow_left" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/back">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fraud Checks"
+            android:textSize="15dp"
+            android:id="@+id/text_1"
+            android:fontFamily="@font/clashdisplaysemibold"
+            android:textColor="#191616"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="We are now verifying the invoice and payment request from your counter-party"
+            android:textSize="13dp"
+            android:id="@+id/text_2"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="@font/clashdisplaymedium"
+            android:textColor="#191616"
+            android:layout_marginTop="20dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="30dp"
+            android:gravity="center_vertical">
+            <ImageView
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:src="@drawable/dot"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Scanning 10k+ data points"
+                android:layout_marginLeft="10dp"
+                android:textColor="#3f3f64"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical">
+            <ImageView
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:src="@drawable/dot"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Checking invoice metadata"
+                android:layout_marginLeft="10dp"
+                android:textColor="#3f3f64"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical">
+            <ImageView
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:src="@drawable/dot"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/clashdisplayregular"
+                android:text="Identify documents"
+                android:layout_marginLeft="10dp"
+                android:textColor="#3f3f64"
+                android:textSize="13dp" />
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/copy"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/clashdisplayregular"
+            android:text="{copy the link above and send to you counter-party representative to verify their identity}."
+            android:layout_marginTop="30dp"
+            android:textColor="#3f3f64"
+            android:textSize="13dp" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/con"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_black"
+        android:clickable="false"
+        android:fontFamily="@font/clashdisplaybold"
+        android:text="Continue"
+        android:textAllCaps="false"
+        android:textColor="#ffffff" />
+
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="3dp"
+        android:layout_gravity="center"
+        android:background="@color/black"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"/>
+
+</RelativeLayout>

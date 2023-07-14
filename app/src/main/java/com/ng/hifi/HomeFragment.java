@@ -141,7 +141,7 @@ public class HomeFragment extends Fragment {
             TextView personName = drawerItem.findViewById(R.id.username);
             TextView refCode = drawerItem.findViewById(R.id.referralCode);
             RelativeLayout myLoans = drawerItem.findViewById(R.id.myLoan);
-            RelativeLayout security = drawerItem.findViewById(R.id.security);
+            RelativeLayout kyc = drawerItem.findViewById(R.id.kyc);
             RelativeLayout contactUs = drawerItem.findViewById(R.id.contactUs);
             RelativeLayout termsAndCondition = drawerItem.findViewById(R.id.termsAndConditions);
             Button logout =  drawerItem.findViewById(R.id.logout);
@@ -180,7 +180,15 @@ public class HomeFragment extends Fragment {
             myLoans.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    startActivity(new Intent(getActivity(), Loans.class));
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    navigateFragment(2);
+//                    startActivity(new Intent(getActivity(), Loans.class));
+                }
+            });
+            kyc.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
                 }
             });
             // Add the item to the drawer layout

@@ -21,4 +21,11 @@
         <item name="fontFamily">@font/clashdisplayregular</item>
         <item name="iconSize">35dp</item>
     </style>
+
+    <style name="CornerCut" parent="">
+        <item name="cornerFamilyTopRight">cut</item>
+        <item name="cornerFamilyBottomRight">cut</item>
+        <item name="cornerSizeTopRight">50%</item>
+        <item name="cornerSizeBottomRight">50%</item>
+    </style>
 </resources>

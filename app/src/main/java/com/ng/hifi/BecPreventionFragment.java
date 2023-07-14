@@ -42,7 +42,7 @@ public class BecPreventionFragment extends Fragment {
         buyCoverForOneOutlet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getContext(), ProtectOutlet.class);
+                Intent i = new Intent(getContext(), EmptyState.class);
                 i.putExtra("outlet", "one outlet");
                 startActivity(i);
             }
@@ -52,7 +52,7 @@ public class BecPreventionFragment extends Fragment {
         buyCoverForMultipleOutlet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getContext(), ProtectOutlet.class);
+                Intent i = new Intent(getContext(), EmptyState.class);
                 i.putExtra("outlet", "multiple outlet");
                 startActivity(i);
             }

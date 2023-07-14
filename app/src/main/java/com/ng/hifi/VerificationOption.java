@@ -44,10 +44,10 @@ public class VerificationOption extends AppCompatActivity {
     Dialog myDialog;
     Boolean userEmailSignUp;
 
-    public static final String EMAIL_VERIFICATION = "https://gamaplaybackend-production.up.railway.app/api/v1/users/activate_account/";
-    public static final String PHONE_VERIFICATION = "https://gamaplaybackend-production.up.railway.app/api/v1/users/request_user_phone_number_verification/";
+    public static final String EMAIL_VERIFICATION = "https://gama-pay-26a021df6b2e.herokuapp.com/api/v1/users/activate_account/";
+    public static final String PHONE_VERIFICATION = "https://gama-pay-26a021df6b2e.herokuapp.com/api/v1/users/request_user_phone_number_verification/";
 
-    public static final String SIGN_UP = "https://gamaplaybackend-production.up.railway.app/api/v1/users/register/";
+    public static final String SIGN_UP = "https://gama-pay-26a021df6b2e.herokuapp.com/api/v1/users/register/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

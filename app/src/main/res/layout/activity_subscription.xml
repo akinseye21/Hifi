@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Subscription"
+    android:background="@color/white"
+    android:paddingTop="20dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/first">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/back"
+            android:src="@drawable/arrow_left"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subscription"
+            android:textSize="15dp"
+            android:id="@+id/textHead"
+            android:fontFamily="@font/clashdisplaysemibold"
+            android:textColor="#191616"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose a cover subscription plan that suit you."
+            android:textSize="13dp"
+            android:id="@+id/textTail"
+            android:fontFamily="@font/clashdisplayregular"
+            android:textColor="#191616"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/first"
+        android:id="@+id/scroll"
+        android:layout_above="@+id/proceed"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/clashdisplayregular"
+                    android:layout_alignParentLeft="true"
+                    android:text="Covers against fraud/ theft"
+                    android:textColor="#191616"
+                    android:textSize="13dp"/>
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/check"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/clashdisplayregular"
+                    android:layout_alignParentLeft="true"
+                    android:text="Covers against natural occurrences"
+                    android:textColor="#191616"
+                    android:textSize="13dp"/>
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/check"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/clashdisplayregular"
+                    android:layout_alignParentLeft="true"
+                    android:text="Covers agains environmental polices"
+                    android:textColor="#191616"
+                    android:textSize="13dp"/>
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/check"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/clashdisplayregular"
+                    android:layout_alignParentLeft="true"
+                    android:text="Access to loans"
+                    android:textColor="#191616"
+                    android:textSize="13dp"/>
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/check"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
+                android:id="@+id/month1"
+                android:background="@drawable/card1">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 MONTH"
+                        android:textColor="#3f3f46"
+                        android:textSize="13dp"
+                        android:fontFamily="@font/clashdisplayregular"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="N 3,500/month"
+                        android:textColor="#3f3f46"
+                        android:textSize="15dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/clashdisplaymedium"/>
+
+                </LinearLayout>
+
+                <RadioButton
+                    android:id="@+id/radioMonth1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:buttonTint="#191616"
+                    android:clickable="false" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:id="@+id/month6"
+                android:background="@drawable/card1">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6 MONTH"
+                        android:textColor="#3f3f46"
+                        android:textSize="13dp"
+                        android:fontFamily="@font/clashdisplayregular"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="N 18,000/month"
+                        android:textColor="#3f3f46"
+                        android:textSize="15dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/clashdisplaymedium"/>
+
+                </LinearLayout>
+
+                <RadioButton
+                    android:id="@+id/radioMonth6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:buttonTint="#191616"
+                    android:clickable="false" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:id="@+id/month3"
+                android:background="@drawable/card1">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3 MONTH"
+                        android:textColor="#3f3f46"
+                        android:textSize="13dp"
+                        android:fontFamily="@font/clashdisplayregular"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="N 9,000/month"
+                        android:textColor="#3f3f46"
+                        android:textSize="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:fontFamily="@font/clashdisplaymedium"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Popular"
+                        android:textColor="#C27803"
+                        android:textSize="10dp"
+                        android:background="@drawable/popular"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:fontFamily="@font/clashdisplayregular"/>
+
+
+                </LinearLayout>
+
+                <RadioButton
+                    android:id="@+id/radioMonth3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:buttonTint="#191616"
+                    android:clickable="false" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:id="@+id/year1"
+                android:background="@drawable/card1">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1 YEAR"
+                        android:textColor="#3f3f46"
+                        android:textSize="13dp"
+                        android:fontFamily="@font/clashdisplayregular"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="N 36,000/year"
+                        android:textColor="#3f3f46"
+                        android:textSize="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:fontFamily="@font/clashdisplaymedium"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Recommended"
+                        android:textColor="#0E9F6E"
+                        android:textSize="10dp"
+                        android:background="@drawable/recommended"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:fontFamily="@font/clashdisplayregular"/>
+
+
+                </LinearLayout>
+
+                <RadioButton
+                    android:id="@+id/radioYear1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:buttonTint="#191616"
+                    android:clickable="false" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/proceed"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/button_black"
+        android:clickable="false"
+        android:fontFamily="@font/clashdisplaybold"
+        android:text="Proceed to payment"
+        android:textColor="@color/white"
+        android:textAllCaps="false" />
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="3dp"
+        android:layout_gravity="center"
+        android:background="@color/black"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"/>
+
+
+</RelativeLayout>

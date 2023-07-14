@@ -3,12 +3,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OnlinePaymentFragment">
+    tools:context=".OnlinePaymentFragment"
+    android:background="@color/white">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:paddingTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/first">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/back"
+                android:src="@drawable/arrow_left"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Make Payments"
+                android:textSize="15dp"
+                android:fontFamily="@font/clashdisplaysemibold"
+                android:textColor="#191616"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Click link to make payments"
+                android:textSize="13dp"
+                android:fontFamily="@font/clashdisplayregular"
+                android:textColor="#191616"
+                android:layout_marginTop="20dp"/>
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/verify"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="30dp"
+            android:clickable="false"
+            android:background="@drawable/button_black"
+            android:fontFamily="@font/clashdisplaybold"
+            android:text="Tawk.co"
+            android:textColor="#ffffff"
+            android:textAllCaps="false"
+            android:textSize="16dp" />
+
+
+    </RelativeLayout>
+
 
 </FrameLayout>

@@ -91,10 +91,13 @@
             android:singleLine="true"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/clashdisplayregular"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:id="@+id/forgotPass"
             android:text="Forgot password?"
             android:textColor="#1C64F2"
             android:textSize="13dp" />
@@ -155,7 +158,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/clashdisplayregular"
-                android:text="Already have an account? "
+                android:text="Don't have an account? "
                 android:textColor="#191616"
                 android:textSize="13dp" />
 
@@ -163,7 +166,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/clashdisplayregular"
-                android:text="Sign in"
+                android:text="Sign Up"
                 android:textColor="#1C64F2"
                 android:textSize="13dp" />
         </LinearLayout>

@@ -22,22 +22,33 @@
         <entry key="app/src/main/res/drawable/edit_text.xml" value="0.1365" />
         <entry key="app/src/main/res/drawable/edit_text2.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/gradient_black.xml" value="0.1775" />
+        <entry key="app/src/main/res/drawable/pointed_edge_red.xml" value="0.137" />
+        <entry key="app/src/main/res/drawable/popular.xml" value="0.137" />
+        <entry key="app/src/main/res/drawable/recommended.xml" value="0.137" />
         <entry key="app/src/main/res/drawable/signup1.xml" value="0.1365" />
         <entry key="app/src/main/res/drawable/upload_bg.xml" value="0.132" />
+        <entry key="app/src/main/res/layout/activity_analytics_score.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/activity_bec_fraud_prevention.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_confirmation_page.xml" value="0.21105072463768115" />
         <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_empty_state.xml" value="0.2504528985507246" />
+        <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_fraud_check.xml" value="0.2504528985507246" />
+        <entry key="app/src/main/res/layout/activity_fraud_score.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/activity_home_screen.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_loan_balance.xml" value="0.21105072463768115" />
         <entry key="app/src/main/res/layout/activity_loans.xml" value="0.21105072463768115" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_notifications.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_password_reset1.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_password_reset2.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_pay_back_loan.xml" value="0.21105072463768115" />
-        <entry key="app/src/main/res/layout/activity_protect_outlet.xml" value="0.29739583333333336" />
+        <entry key="app/src/main/res/layout/activity_protect_outlet.xml" value="0.21761016845703127" />
         <entry key="app/src/main/res/layout/activity_request_loan.xml" value="0.21105072463768115" />
         <entry key="app/src/main/res/layout/activity_request_loan2.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_request_loan_pending.xml" value="0.16822916666666668" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_subscription.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/activity_verification_by.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_verification_option.xml" value="0.22589965820312502" />
         <entry key="app/src/main/res/layout/activity_verify_phone.xml" value="0.25" />
@@ -48,6 +59,7 @@
         <entry key="app/src/main/res/layout/fragment_bec_prevention.xml" value="0.29739583333333336" />
         <entry key="app/src/main/res/layout/fragment_home_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_loans.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_online_payment.xml" value="0.1296875" />
         <entry key="app/src/main/res/layout/list_all_loans.xml" value="0.265625" />
         <entry key="app/src/main/res/layout/list_notification.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/list_paid_loans.xml" value="0.265625" />

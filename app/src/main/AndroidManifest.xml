@@ -21,38 +21,79 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Notifications"
+            android:name=".Kyc"
             android:exported="false" />
+        <activity
+            android:name=".Subscription"
+            android:exported="false" />
+        <activity
+            android:name=".EmptyState"
+            android:exported="false" />
+        <activity
+            android:name=".AnalyticsScore"
+            android:exported="false" />
+        <activity
+            android:name=".FraudScore"
+            android:exported="false" />
+        <activity
+            android:name=".FraudCheck"
+            android:exported="false" />
+        <activity
+            android:name=".PasswordReset2"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PasswordReset1"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ForgotPassword"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Notifications"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RequestLoan2"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RequestLoanPending"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoanBalance"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".PayBackLoan"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Loans"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".RequestLoan"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".BecFraudPrevention"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ConfirmationPage"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ProtectOutlet"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".HomeScreen"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SignIn"
             android:exported="false"

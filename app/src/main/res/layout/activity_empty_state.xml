@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfirmationPage"
+    tools:context=".EmptyState"
     android:background="@color/white"
     android:paddingTop="20dp"
     android:paddingLeft="20dp"
@@ -21,63 +21,46 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center"
-        android:id="@+id/successfull"
-        android:layout_centerInParent="true">
-        <ImageView
-            android:layout_width="162dp"
-            android:layout_height="162dp"
-            android:src="@drawable/img7"/>
+        android:id="@+id/noPOS"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Payment successful"
-            android:textSize="24dp"
-            android:id="@+id/text1"
+            android:text="No POS outlet secured yet"
+            android:textSize="15dp"
+            android:fontFamily="@font/clashdisplaysemibold"
             android:textColor="#191616"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/clashdisplaysemibold"/>
+            android:layout_marginTop="20dp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your outlet is now being protected against\n unforeseen circumstances"
+            android:text="Click on the button below to buy a\ncover for your outlet"
             android:textSize="13dp"
-            android:textColor="#3f3f46"
-            android:id="@+id/text2"
+            android:layout_gravity="center"
             android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/clashdisplayregular"/>
-
+            android:lineSpacingExtra="5dp"
+            android:fontFamily="@font/clashdisplayregular"
+            android:textColor="#191616"
+            android:layout_marginTop="20dp"/>
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/home"
+        android:id="@+id/buy"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/button_black"
         android:clickable="false"
         android:fontFamily="@font/clashdisplaybold"
-        android:text="Back to home"
-        android:textAllCaps="false"
-        android:textColor="#ffffff" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="View secured outlets"
-        android:textSize="15dp"
-        android:padding="10dp"
-        android:textColor="#3f3f46"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:layout_marginBottom="30dp"
-        android:fontFamily="@font/clashdisplayregular"/>
-
+        android:text="Buy Cover"
+        android:textColor="@color/white"
+        android:textAllCaps="false" />
 
     <View
         android:layout_width="100dp"

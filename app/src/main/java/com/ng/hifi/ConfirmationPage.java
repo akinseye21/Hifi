@@ -37,14 +37,6 @@ public class ConfirmationPage extends AppCompatActivity {
         });
 
         home = findViewById(R.id.home);
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(ConfirmationPage.this, HomeScreen.class);
-                i.putExtra("from", "ConfirmationPage");
-                startActivity(i);
-            }
-        });
 
         text1 = findViewById(R.id.text1);
         text2 = findViewById(R.id.text2);
@@ -52,9 +44,35 @@ public class ConfirmationPage extends AppCompatActivity {
         if (from.equals("BecFraudPrevention")){
             text1.setText("Verification Successful");
             text2.setText("Your payment has been successfully verified");
+            home.setText("Continue to invoice verification");
+            home.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(ConfirmationPage.this, FraudCheck.class);
+                    i.putExtra("from", "ConfirmationPage");
+                    startActivity(i);
+                }
+            });
         }else if (from.equals("PayBackLoan")){
             text1.setText("Payment Successful");
             text2.setText("You have successfully paid back your loan");
+            home.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(ConfirmationPage.this, HomeScreen.class);
+                    i.putExtra("from", "ConfirmationPage");
+                    startActivity(i);
+                }
+            });
+        }else if (from.equals("ProtectOutlet")){
+            home.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(ConfirmationPage.this, HomeScreen.class);
+                    i.putExtra("from", "ConfirmationPage");
+                    startActivity(i);
+                }
+            });
         }
 
 

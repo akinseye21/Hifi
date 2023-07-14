@@ -1,24 +1,17 @@
 package com.ng.hifi;
 
-import static com.ng.hifi.ProtectOutlet.CREATE_NOTIFICATION;
-
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.OpenableColumns;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -27,7 +20,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
+import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,14 +39,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.text.NumberFormat;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 import co.paystack.android.Paystack;
@@ -61,45 +51,50 @@ import co.paystack.android.Transaction;
 import co.paystack.android.model.Card;
 import co.paystack.android.model.Charge;
 
-public class BecFraudPrevention extends AppCompatActivity {
+public class Subscription extends AppCompatActivity {
 
-    ImageView back;
-    ScrollView scrollView;
-    EditText companyName, webUrl, companyLocation, fullName, amount;
-    LinearLayout view2, uploadFile;
-    LinearLayout text1;
-    TextView text2;
-    TextView text_1, text_2;
-    ImageView image;
-    Button verifyPayment, pay;
-    Dialog myDialogLoading;
-    Dialog myDialog;
-    private RequestQueue rQueue;
-    SharedPreferences preferences;
-    String token;
+    Button proceed, pay;
+    Dialog myDialog, myDialogLoading;
     String selection = "card";
+    String plan = "";
+    private RequestQueue rQueue;
 
+    RelativeLayout month1, month6, month3, year1;
+    RadioButton radioMonth1, radioMonth6, radioMonth3, radioYear1;
+
+    //boolean for payment with card
+    Boolean cardNameBool = false, cardNumberBool = false, cardExpDateBool = false, cardCvvBool = false;
+    //boolean for payment with transfer
+    Boolean bankNameBool = false, accountNumberBool = false, amountBool = false;
     // editText for the card details
     EditText cardName;
     EditText cardNumber;
     EditText expDate;
     EditText cvv;
 
-    //boolean for payment with card
-    Boolean cardNameBool = false, cardNumberBool = false, cardExpDateBool = false, cardCvvBool = false;
-    //boolean for payment with transfer
-    Boolean bankNameBool = false, accountNumberBool = false, amountBool = false;
+    String displayName, myUri, name, cityState, closeLandMark, address;
+    Uri uri;
+    SharedPreferences preferences;
+    String token;
 
-    //boolean for entry information
-    Boolean companyNameBool = false, webUrlBool = false, companyLocationBool = false, fullNameBool = false, amountBool1 = false, imageUploadBool1 = false;
+    public static final String CREATE_POS_OUTLET = "https://gama-pay-26a021df6b2e.herokuapp.com/api/v1/outlets/create/";
+    public static final String CREATE_NOTIFICATION = "https://gama-pay-26a021df6b2e.herokuapp.com/api/v1/notifications/create_get_user_notification/";
 
-    public static final String CREATE_BEC = "https://gama-pay-26a021df6b2e.herokuapp.com/api/v1/loans/create_get_bec_fraud/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bec_fraud_prevention);
+        setContentView(R.layout.activity_subscription);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        Intent i = getIntent();
+        displayName = i.getStringExtra("displayName");
+        myUri = i.getStringExtra("uri");
+        uri = Uri.parse(myUri);
+        name = i.getStringExtra("name");
+        cityState = i.getStringExtra("cityState");
+        closeLandMark = i.getStringExtra("closeLandMark");
+        address = i.getStringExtra("address");
 
         preferences = getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
         token = preferences.getString("token", "");
@@ -107,183 +102,98 @@ public class BecFraudPrevention extends AppCompatActivity {
         PaystackSdk.initialize(getApplicationContext());
         setPaystackKey("pk_test_1f321cbb5ab36541925e805fd73e321f0ca07967");
 
-        back = findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
+        month1 = findViewById(R.id.month1);
+        month6 = findViewById(R.id.month6);
+        month3 = findViewById(R.id.month3);
+        year1 = findViewById(R.id.year1);
+        radioMonth1 = findViewById(R.id.radioMonth1);
+        radioMonth6 = findViewById(R.id.radioMonth6);
+        radioMonth3 = findViewById(R.id.radioMonth3);
+        radioYear1 = findViewById(R.id.radioYear1);
+
+        month1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+                month1.setBackgroundResource(R.drawable.card2);
+                month6.setBackgroundResource(R.drawable.card1);
+                month3.setBackgroundResource(R.drawable.card1);
+                year1.setBackgroundResource(R.drawable.card1);
+                radioMonth1.setChecked(true);
+                radioMonth6.setChecked(false);
+                radioMonth3.setChecked(false);
+                radioYear1.setChecked(false);
+                plan = "one month";
             }
         });
-        scrollView = findViewById(R.id.scroll);
-        view2 = findViewById(R.id.view2);
-        text_1 = findViewById(R.id.text_1);
-        text_2 = findViewById(R.id.text_2);
-        //get Edittext views
-        companyName = findViewById(R.id.companyName);
-        webUrl = findViewById(R.id.webUrl);
-        companyLocation = findViewById(R.id.companyLocation);
-        fullName = findViewById(R.id.requestorName);
-        amount = findViewById(R.id.amount);
-        verifyPayment = findViewById(R.id.verifyPayment);
-        //get upload button view
-        uploadFile = findViewById(R.id.uploadFile);
-        text1 = findViewById(R.id.text1);
-        text2 = findViewById(R.id.text2);
-        image = findViewById(R.id.image);
-
-        companyName.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (companyName.getText().length()>3){
-                    companyName.setBackgroundResource(R.drawable.edit_text2);
-                    companyNameBool = true;
-                }
-                checkerForButton("", Uri.parse(""));
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-        webUrl.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                Boolean checker = false;
-                try {
-                    new URL(webUrl.getText().toString());
-                    checker = true;
-                } catch (Exception e) {
-                    checker = false;
-                }
-
-                if (checker){
-                    webUrl.setBackgroundResource(R.drawable.edit_text2);
-                    webUrlBool = true;
-                }
-                checkerForButton("", Uri.parse(""));
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-        companyLocation.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (companyLocation.getText().length()>=5){
-                    companyLocation.setBackgroundResource(R.drawable.edit_text2);
-                    companyLocationBool = true;
-                }
-                checkerForButton("", Uri.parse(""));
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-        fullName.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (fullName.getText().length()>=5){
-                    fullName.setBackgroundResource(R.drawable.edit_text2);
-                    fullNameBool = true;
-                }
-                checkerForButton("", Uri.parse(""));
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
-        amount.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (amount.getText().length() >= 3){
-                    amount.setBackgroundResource(R.drawable.edit_text2);
-                    amountBool1 = true;
-                }
-                checkerForButton("", Uri.parse(""));
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-
-            }
-        });
-        uploadFile.setOnClickListener(new View.OnClickListener() {
+        month6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                startActivityForResult(intent,1);
+                month1.setBackgroundResource(R.drawable.card1);
+                month6.setBackgroundResource(R.drawable.card2);
+                month3.setBackgroundResource(R.drawable.card1);
+                year1.setBackgroundResource(R.drawable.card1);
+                radioMonth1.setChecked(false);
+                radioMonth6.setChecked(true);
+                radioMonth3.setChecked(false);
+                radioYear1.setChecked(false);
+                plan = "six month";
+            }
+        });
+        month3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                month1.setBackgroundResource(R.drawable.card1);
+                month6.setBackgroundResource(R.drawable.card1);
+                month3.setBackgroundResource(R.drawable.card2);
+                year1.setBackgroundResource(R.drawable.card1);
+                radioMonth1.setChecked(false);
+                radioMonth6.setChecked(false);
+                radioMonth3.setChecked(true);
+                radioYear1.setChecked(false);
+                plan = "three month";
+            }
+        });
+        year1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                month1.setBackgroundResource(R.drawable.card1);
+                month6.setBackgroundResource(R.drawable.card1);
+                month3.setBackgroundResource(R.drawable.card1);
+                year1.setBackgroundResource(R.drawable.card2);
+                radioMonth1.setChecked(false);
+                radioMonth6.setChecked(false);
+                radioMonth3.setChecked(false);
+                radioYear1.setChecked(true);
+                plan = "one year";
             }
         });
 
+
+        proceed = findViewById(R.id.proceed);
+        proceed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (plan.equals("one month")){
+                    dialoger(3500);
+                }else if (plan.equals("six month")){
+                    dialoger(18000);
+                }else if (plan.equals("three month")){
+                    dialoger(9000);
+                }else if (plan.equals("one year")){
+                    dialoger(36000);
+                }else{
+                    Toast.makeText(Subscription.this, "Please select a subscription plan", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        });
 
     }
 
-    public void checkerForButton(final String fileName, Uri fileUri){
-        if (companyNameBool && webUrlBool && companyLocationBool && fullNameBool && amountBool1 && imageUploadBool1){
-            verifyPayment.setBackgroundResource(R.drawable.button_black);
-            verifyPayment.setClickable(true);
-            verifyPayment.setTextColor(Color.WHITE);
-            verifyPayment.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                    scrollView.setVisibility(View.GONE);
-                    text_1.setVisibility(View.GONE);
-                    text_2.setVisibility(View.GONE);
-                    view2.setVisibility(View.VISIBLE);
-                    verifyPayment.setText("Proceed to payment");
-                    verifyPayment.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            //show payment access
-                            paymentAccess(fileName, fileUri);
-
-                        }
-                    });
-
-
-                }
-            });
-        }
-    }
-
-    private void paymentAccess(String displayName, Uri uri) {
-        myDialog = new Dialog(BecFraudPrevention.this);
+    private void dialoger(int price) {
+        myDialog = new Dialog(Subscription.this);
         myDialog.setContentView(R.layout.custom_popup_notification);
         // Setting dialogview
         Window window = myDialog.getWindow();
@@ -345,7 +255,7 @@ public class BecFraudPrevention extends AppCompatActivity {
                     cardName.setBackgroundResource(R.drawable.edit_text2);
                     cardNameBool = true;
                 }
-                checked(displayName, uri, cardNumber.getText().toString(), expDate.getText().toString(), cvv.getText().toString());
+                checked(price, displayName, uri, cardNumber.getText().toString(), expDate.getText().toString(), cvv.getText().toString());
             }
 
             @Override
@@ -366,7 +276,7 @@ public class BecFraudPrevention extends AppCompatActivity {
                     cardNumberBool = true;
                 }
 
-                checked(displayName, uri, cardNumber.getText().toString(), expDate.getText().toString(), cvv.getText().toString());
+                checked(price, displayName, uri, cardNumber.getText().toString(), expDate.getText().toString(), cvv.getText().toString());
             }
 
             @Override
@@ -396,7 +306,7 @@ public class BecFraudPrevention extends AppCompatActivity {
                     cardExpDateBool = true;
                 }
 
-                checked(displayName, uri, cardNumber.getText().toString(), expDate.getText().toString(), cvv.getText().toString());
+                checked(price, displayName, uri, cardNumber.getText().toString(), expDate.getText().toString(), cvv.getText().toString());
 
             }
 
@@ -418,7 +328,7 @@ public class BecFraudPrevention extends AppCompatActivity {
                     cardCvvBool = true;
                 }
 
-                checked(displayName, uri, cardNumber.getText().toString(), expDate.getText().toString(), cvv.getText().toString());
+                checked(price, displayName, uri, cardNumber.getText().toString(), expDate.getText().toString(), cvv.getText().toString());
             }
 
             @Override
@@ -497,7 +407,7 @@ public class BecFraudPrevention extends AppCompatActivity {
         myDialog.show();
     }
 
-    private void checked(String displayName, Uri uri, String theCardNumber, String theCardExpiration, String theCardCVV) {
+    private void checked(int price, String displayName, Uri uri, String theCardNumber, String theCardExpiration, String theCardCVV) {
 
         if (selection.equals("card")){
             //check booleans for card
@@ -516,10 +426,10 @@ public class BecFraudPrevention extends AppCompatActivity {
                         Card card = new Card(theCardNumber, expiryMonth, expiryYear, theCardCVV);
                         if (card.isValid()) {
                             // charge card
-                            performCharge(displayName, uri, theCardNumber, expiryMonth, expiryYear, theCardCVV);
+                            performCharge(price, displayName, uri, theCardNumber, expiryMonth, expiryYear, theCardCVV);
                         } else {
                             //do something
-                            Toast.makeText(BecFraudPrevention.this, "Invalid Card", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Subscription.this, "Invalid Card", Toast.LENGTH_SHORT).show();
                         }
 
                         // integrate paystack gateway  here
@@ -578,10 +488,10 @@ public class BecFraudPrevention extends AppCompatActivity {
 
     }
 
-    private void performCharge(String displayName, Uri uri, String theCardNumber, int expiryMonth, int expiryYear, String theCardCVV) {
+    private void performCharge(int price, String displayName, Uri uri, String theCardNumber, int expiryMonth, int expiryYear, String theCardCVV) {
 
         //checking card
-        myDialogLoading = new Dialog(BecFraudPrevention.this);
+        myDialogLoading = new Dialog(Subscription.this);
         myDialogLoading.setContentView(R.layout.custom_popup_loading);
         TextView text = myDialogLoading.findViewById(R.id.text);
         text.setText("Checking card...");
@@ -589,10 +499,11 @@ public class BecFraudPrevention extends AppCompatActivity {
         myDialogLoading.setCanceledOnTouchOutside(false);
         myDialogLoading.show();
 
+
         Card card = new Card(theCardNumber, expiryMonth, expiryYear, theCardCVV);
 
         Charge charge = new Charge();
-        charge.setAmount(1000000*100);
+        charge.setAmount(price*100);
         charge.setEmail("abayomi.akinseye@gmail.com");
         charge.setCard(card);
 
@@ -603,10 +514,7 @@ public class BecFraudPrevention extends AppCompatActivity {
 //                startActivity(new Intent(ProtectOutlet.this, ConfirmationPage.class));
 //                parseResponse(transaction.getReference());
                 myDialogLoading.dismiss();
-
-                //send to DB
-                createBEC(displayName, uri);
-//                uploadInfo(displayName, uri);
+                uploadInfo(displayName, uri);
             }
 
             @Override
@@ -622,18 +530,17 @@ public class BecFraudPrevention extends AppCompatActivity {
             @Override
             public void onError(Throwable error, Transaction transaction) {
                 myDialogLoading.dismiss();
-                Toast.makeText(BecFraudPrevention.this, "Problem with card. "+error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Subscription.this, "Problem with card. "+error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 System.out.println("Paystack Transaction error = "+error.getLocalizedMessage());
             }
 
         });
     }
 
-    private void createBEC(String fileName, Uri fileUri) {
-        myDialogLoading = new Dialog(BecFraudPrevention.this);
+    private void uploadInfo(final String fileName, Uri fileUri) {
+
+        myDialogLoading = new Dialog(Subscription.this);
         myDialogLoading.setContentView(R.layout.custom_popup_loading);
-        TextView text = myDialogLoading.findViewById(R.id.text);
-        text.setText("Creating your request...");
         myDialogLoading.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         myDialogLoading.setCanceledOnTouchOutside(false);
         myDialogLoading.show();
@@ -645,11 +552,11 @@ public class BecFraudPrevention extends AppCompatActivity {
             final byte[] inputData = getBytes(iStream);
 
 
-            VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, CREATE_BEC,
+            VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, CREATE_POS_OUTLET,
                     new Response.Listener<NetworkResponse>() {
                         @Override
                         public void onResponse(NetworkResponse response) {
-                            System.out.println("BEC FraudPreventing response1 = "+ new String(response.data));
+                            System.out.println("Create POS Outlet response1 = "+ new String(response.data));
 //                            Toast.makeText(getActivity(), "Upload Update "+response, Toast.LENGTH_SHORT).show();
 //                            Log.d("ressssssoo",new String(response.data));
                             rQueue.getCache().clear();
@@ -668,7 +575,7 @@ public class BecFraudPrevention extends AppCompatActivity {
                             } catch (JSONException e) {
                                 myDialogLoading.dismiss();
                                 e.printStackTrace();
-                                Toast.makeText(BecFraudPrevention.this, "Error in creating request1.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Subscription.this, "Error in creating outlet.", Toast.LENGTH_LONG).show();
                             }
                         }
                     },
@@ -676,18 +583,7 @@ public class BecFraudPrevention extends AppCompatActivity {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             myDialogLoading.dismiss();
-
-
-                            if (error.networkResponse != null) {
-                                // Retrieve the response body if available
-                                byte[] responseData = error.networkResponse.data;
-                                if (responseData != null) {
-                                    String message = new String(responseData);
-
-                                    Toast.makeText(BecFraudPrevention.this, "Error in creating request2.", Toast.LENGTH_LONG).show();
-                                    System.out.println("Error in creating request "+ message);
-                                }
-                            }
+                            System.out.println("Create POS Outlet error2 = "+ error.getMessage());
                         }
                     }) {
 
@@ -699,11 +595,10 @@ public class BecFraudPrevention extends AppCompatActivity {
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> params = new HashMap<>();
                     params.put("Content-Type", "application/json");
-                    params.put("company_name", companyName.getText().toString());
-                    params.put("company_url", webUrl.getText().toString());
-                    params.put("company_location", companyLocation.getText().toString());
-                    params.put("name_of_person_asking_for_payment", fullName.getText().toString());
-                    params.put("amount", amount.getText().toString());
+                    params.put("name", name);
+                    params.put("cityState", cityState);
+                    params.put("closeLandMark", closeLandMark);
+                    params.put("address", address);
                     return params;
                 }
 
@@ -713,7 +608,7 @@ public class BecFraudPrevention extends AppCompatActivity {
                 @Override
                 protected Map<String, DataPart> getByteData() {
                     Map<String, DataPart> params = new HashMap<>();
-                    params.put("invoice_file", new DataPart(fileName ,inputData));
+                    params.put("frontPicture", new DataPart(fileName ,inputData));
                     return params;
                 }
 
@@ -748,12 +643,23 @@ public class BecFraudPrevention extends AppCompatActivity {
             e.printStackTrace();
         }
 
+    }
 
+    public byte[] getBytes(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
+        int bufferSize = 1024;
+        byte[] buffer = new byte[bufferSize];
+
+        int len = 0;
+        while ((len = inputStream.read(buffer)) != -1) {
+            byteBuffer.write(buffer, 0, len);
+        }
+        return byteBuffer.toByteArray();
     }
 
     private void createNotification() {
 
-        myDialogLoading = new Dialog(BecFraudPrevention.this);
+        myDialogLoading = new Dialog(Subscription.this);
         myDialogLoading.setContentView(R.layout.custom_popup_loading);
         TextView text = myDialogLoading.findViewById(R.id.text);
         text.setText("Getting object data...");
@@ -769,18 +675,23 @@ public class BecFraudPrevention extends AppCompatActivity {
                         System.out.println("Notification response = "+response);
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
+                            String id = jsonResponse.getString("id");
+                            String message = jsonResponse.getString("message");
+                            String sentTo = jsonResponse.getString("sentTo");
+                            String is_read = jsonResponse.getString("is_read");
+                            String date = jsonResponse.getString("date_sent");
 
                             myDialogLoading.dismiss();
-                            Toast.makeText(BecFraudPrevention.this, "BEC Created successfully ", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Subscription.this, "Outlet Created successfully ", Toast.LENGTH_LONG).show();
                             // got to confirmation page
-                            Intent i = new Intent(BecFraudPrevention.this, ConfirmationPage.class);
-                            i.putExtra("from", "BecFraudPrevention");
+                            Intent i = new Intent(Subscription.this, ConfirmationPage.class);
+                            i.putExtra("from", "ProtectOutlet");
                             startActivity(i);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                             myDialogLoading.dismiss();
-                            Toast.makeText(BecFraudPrevention.this, "Problem creating BEC", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Subscription.this, "Problem creating Notification", Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
@@ -793,7 +704,7 @@ public class BecFraudPrevention extends AppCompatActivity {
                             byte[] responseData = volleyError.networkResponse.data;
                             if (responseData != null) {
                                 System.out.println("Error creating notification "+new String(responseData));
-                                Toast.makeText(BecFraudPrevention.this, new String(responseData), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Subscription.this, new String(responseData), Toast.LENGTH_SHORT).show();
                             }
                         }
                         volleyError.printStackTrace();
@@ -803,7 +714,7 @@ public class BecFraudPrevention extends AppCompatActivity {
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap<>();
                 params.put("Content-Type", "application/json");
-                params.put("message", "You have successfully requested a BEC with name "+companyName.getText().toString());
+                params.put("message", "You have successfully created POS outlet "+name);
                 return params;
             }
             @Override
@@ -829,63 +740,5 @@ public class BecFraudPrevention extends AppCompatActivity {
 
     public static void setPaystackKey(String publicKey) {
         PaystackSdk.setPublicKey(publicKey);
-    }
-
-    @SuppressLint("Range")
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == RESULT_OK) {
-            // Get the Uri of the selected file
-            Uri uri = data.getData();
-            String uriString = uri.toString();
-            File myFile = new File(uriString);
-//            String path = myFile.getAbsolutePath();
-            String displayName = null;
-            if (uriString.startsWith("content://")) {
-                Cursor cursor = null;
-                try {
-                    cursor = getApplicationContext().getContentResolver().query(uri, null, null, null, null);
-                    if (cursor != null && cursor.moveToFirst()) {
-                        displayName = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
-                        Log.d("nameeeee>>>>  ",displayName);
-
-                        text1.setVisibility(View.GONE);
-                        text2.setText(displayName);
-                        text2.setTextColor(Color.parseColor("#191616"));
-                        image.setVisibility(View.VISIBLE);
-                        image.setImageURI(uri);
-                        imageUploadBool1 = true;
-                        checkerForButton(displayName, uri);
-                    }
-                } finally {
-                    cursor.close();
-                }
-            } else if (uriString.startsWith("file://")) {
-                displayName = myFile.getName();
-                Log.d("nameeeee>>>>  ",displayName);
-
-                text1.setVisibility(View.GONE);
-                text2.setText(displayName);
-                text2.setTextColor(Color.parseColor("#191616"));
-                image.setVisibility(View.VISIBLE);
-                image.setImageURI(uri);
-                imageUploadBool1 = true;
-                checkerForButton(displayName, uri);
-            }
-        }
-    }
-
-    public byte[] getBytes(InputStream inputStream) throws IOException {
-        ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
-        int bufferSize = 1024;
-        byte[] buffer = new byte[bufferSize];
-
-        int len = 0;
-        while ((len = inputStream.read(buffer)) != -1) {
-            byteBuffer.write(buffer, 0, len);
-        }
-        return byteBuffer.toByteArray();
     }
 }

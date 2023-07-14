@@ -64,7 +64,7 @@ public class RequestLoan2 extends AppCompatActivity {
     SharedPreferences preferences;
     String token;
 
-    public static final String CREATE_LOAN = "https://gamaplaybackend-production.up.railway.app/api/v1/loans/create_get_user_loans/";
+    public static final String CREATE_LOAN = "https://gama-pay-26a021df6b2e.herokuapp.com/api/v1/loans/create_get_user_loans/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

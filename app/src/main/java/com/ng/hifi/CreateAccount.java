@@ -46,7 +46,7 @@ public class CreateAccount extends AppCompatActivity {
     ImageView back;
     LinearLayout loading;
 
-//    public static final String SIGN_UP = "https://gamaplaybackend-production.up.railway.app/api/v1/users/register/";
+//    public static final String SIGN_UP = "https://gama-pay-26a021df6b2e.herokuapp.com/api/v1/users/register/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

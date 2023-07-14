@@ -46,7 +46,7 @@ public class Notifications extends AppCompatActivity {
     ArrayList<Boolean> arr_isRead = new ArrayList<>();
     ArrayList<String> arr_date = new ArrayList<>();
 
-    public static final String GET_USER_NOTIFICATION = "https://gamaplaybackend-production.up.railway.app/api/v1/notifications/create_get_user_notification/";
+    public static final String GET_USER_NOTIFICATION = "https://gama-pay-26a021df6b2e.herokuapp.com/api/v1/notifications/create_get_user_notification/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

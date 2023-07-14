@@ -19,6 +19,7 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:id="@+id/back"
             android:src="@drawable/arrow_left"/>
 
 
@@ -37,6 +38,7 @@
             android:layout_height="wrap_content"
             android:text="Protect your outlet, you can buy cover for one or more outlets."
             android:textSize="13dp"
+            android:id="@+id/textTail"
             android:fontFamily="@font/clashdisplayregular"
             android:textColor="#191616"
             android:layout_marginTop="20dp"/>
@@ -44,8 +46,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/first">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/protectOutlet"
+        android:layout_below="@+id/first"
+        android:id="@+id/scroll"
+        android:scrollbars="none">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -195,18 +200,19 @@
         </LinearLayout>
     </ScrollView>
 
+
     <Button
         android:id="@+id/protectOutlet"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/signup1"
         android:clickable="false"
         android:fontFamily="@font/clashdisplaybold"
         android:text="Protect my outlet"
-        android:textAllCaps="false"
-        android:layout_marginBottom="30dp"
-        android:layout_alignParentBottom="true"/>
+        android:textAllCaps="false" />
 
     <View
         android:layout_width="100dp"

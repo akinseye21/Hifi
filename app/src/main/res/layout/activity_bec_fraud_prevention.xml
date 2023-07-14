@@ -28,6 +28,7 @@
             android:layout_height="wrap_content"
             android:text="BEC fraud prevention"
             android:textSize="15dp"
+            android:id="@+id/text_1"
             android:fontFamily="@font/clashdisplaysemibold"
             android:textColor="#191616"
             android:layout_marginTop="20dp"/>
@@ -37,6 +38,7 @@
             android:layout_height="wrap_content"
             android:text="Protect your business from fraud and unauthorized payment request."
             android:textSize="13dp"
+            android:id="@+id/text_2"
             android:fontFamily="@font/clashdisplayregular"
             android:textColor="#191616"
             android:layout_marginTop="20dp"/>
@@ -46,6 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/first"
+        android:id="@+id/scroll"
         android:scrollbars="none"
         android:layout_marginBottom="100dp">
 
@@ -261,6 +264,43 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:id="@+id/view2"
+        android:visibility="gone"
+        android:layout_centerVertical="true">
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/screen"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Based on the invoice fee, your verification fee is $5,000 "
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="@font/clashdisplaybold"
+            android:textColor="#191616"
+            android:layout_marginTop="20dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="After payment you will be redirected\non the next steps"
+            android:textSize="12dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="@font/clashdisplaylight"
+            android:textColor="#191616"
+            android:layout_marginTop="10dp"/>
+
+        After payment you will be redirected on the next steps
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/verifyPayment"

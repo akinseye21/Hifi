@@ -53,7 +53,7 @@ public class LoanBalance extends AppCompatActivity {
     ArrayList<String> arr_Amount = new ArrayList<>();
     ArrayList<String> arr_POSImage = new ArrayList<>();
 
-    public static final String GET_PAID_LOANS = "https://gamaplaybackend-production.up.railway.app/api/v1/loans/get_all_loans_paid_by_user/";
+    public static final String GET_PAID_LOANS = "https://gama-pay-26a021df6b2e.herokuapp.com/api/v1/loans/get_all_loans_paid_by_user/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

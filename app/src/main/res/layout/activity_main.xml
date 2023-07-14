@@ -41,14 +41,12 @@
     </RelativeLayout>
 
 
-
-
     <androidx.viewpager.widget.ViewPager
+        android:id="@+id/slider"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/slider"
-        android:layout_below="@+id/dotsLayout"
-        android:layout_above="@+id/linbutton"/>
+        android:layout_above="@+id/linbutton"
+        android:layout_below="@+id/dotsLayout" />
 
     <LinearLayout
         android:layout_width="match_parent"

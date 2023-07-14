@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -42,10 +43,11 @@ public class SignIn extends AppCompatActivity {
     Button signIn;
     LinearLayout signUp;
     LinearLayout loading;
+    TextView forgotPass;
     SharedPreferences preferences;
 
-    public static final String SIGN_IN = "https://gamaplaybackend-production.up.railway.app/api/v1/users/login/";
-    public static final String GET_REF_CODE = "https://gamaplaybackend-production.up.railway.app/api/v1/users/get_user_referal_code/";
+    public static final String SIGN_IN = "https://gama-pay-26a021df6b2e.herokuapp.com/api/v1/users/login/";
+    public static final String GET_REF_CODE = "https://gama-pay-26a021df6b2e.herokuapp.com/api/v1/users/get_user_referal_code/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,13 @@ public class SignIn extends AppCompatActivity {
         signIn = findViewById(R.id.signin);
         signUp = findViewById(R.id.signUp);
         loading = findViewById(R.id.loading);
+        forgotPass = findViewById(R.id.forgotPass);
+        forgotPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SignIn.this, ForgotPassword.class));
+            }
+        });
 
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -188,8 +197,17 @@ public class SignIn extends AppCompatActivity {
 
                             byte[] responseData = volleyError.networkResponse.data;
                             if (responseData != null) {
+                                String new_response = new String(responseData);
+                                try {
+                                    JSONObject jsonObject = new JSONObject(new_response);
+                                    String message = jsonObject.getString("message");
+                                    Toast.makeText(SignIn.this, message, Toast.LENGTH_SHORT).show();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
                                 System.out.println("Sign in error response = "+new String(responseData));
-                                Toast.makeText(SignIn.this, new String(responseData), Toast.LENGTH_SHORT).show();
+
                             }
                         }
                         volleyError.printStackTrace();
